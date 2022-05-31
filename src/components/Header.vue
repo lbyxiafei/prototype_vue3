@@ -2,6 +2,9 @@
   <header>
     <nav>
     <RouterLink to="/">Home</RouterLink> |
+    <RouterLink to="/bookmarks">Bookmarks</RouterLink> |
+    <RouterLink to="/posts">Posts</RouterLink> |
+    <RouterLink to="/calendar">Calendar</RouterLink> |
     <RouterLink to="/about">About</RouterLink>
     </nav>
   </header>
