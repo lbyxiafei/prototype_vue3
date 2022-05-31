@@ -1,10 +1,31 @@
 <template>
-  <h1 class="center-screen">Bookmarks</h1>
+  <Bookmarks :bookmarks="bookmarks"/>
 </template>
 
 <script>
+import Bookmarks from '../components/Bookmarks.vue'
+
 export default{
-  name: "Bookmarks"
+  name: "BookmarksView",
+  data(){
+    return {
+      bookmarks:[]
+    }
+  },
+  components:{
+    Bookmarks
+  },
+  methods:{
+    async fetchBookmarks() {
+      // const res = await fetch('http://localhost:5000/bookmarks')
+      const res = await fetch('api/bookmarks')
+      const data = await res.json()
+      return data
+    }
+  },
+  async created(){
+    this.bookmarks = await this.fetchBookmarks();
+  }
 }
 </script>
 
