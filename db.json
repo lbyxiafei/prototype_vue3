@@ -1,0 +1,12 @@
+{
+  "bookmarks": [
+    {
+      "id": 1,
+      "url": "http://nathanmarz.com/blog/how-to-beat-the-cap-theorem.html"
+    },
+    {
+      "url": "xyz",
+      "id": 2
+    }
+  ]
+}
