@@ -12,6 +12,7 @@ export default defineConfig({
     },
   },
   server: {
+    // https://vitejs.dev/config/#server-proxy
     proxy: {
       '/api': {
         target: 'http://localhost:5000',
