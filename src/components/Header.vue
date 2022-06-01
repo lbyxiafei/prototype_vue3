@@ -28,6 +28,8 @@ export default{
 
 <style scoped>
 header {
+  padding-top: 1vh;
+  min-height: 3vh;
   background-color: azure;
 }
 nav {
@@ -37,6 +39,7 @@ nav {
   text-align: center;
 }
 .fa-plus{
+  margin-top: 1vh;
   color: purple;
   position: absolute;
   right: 5vh;

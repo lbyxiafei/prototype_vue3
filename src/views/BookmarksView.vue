@@ -1,11 +1,13 @@
 <template>
 <div class="container center-screen">
+  <SiderLeft />
   <Bookmarks :bookmarks="bookmarks"/>
 </div>
 </template>
 
 <script>
 import Bookmarks from '../components/Bookmarks.vue'
+import SiderLeft from '../components/SiderLeft.vue'
 
 export default{
   name: "BookmarksView",
@@ -15,6 +17,7 @@ export default{
     }
   },
   components:{
+    SiderLeft,
     Bookmarks
   },
   methods:{

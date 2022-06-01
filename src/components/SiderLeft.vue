@@ -20,7 +20,12 @@ export default{
 @import '../assets/base.css';
 .sider{
     background-color: aqua;
-    padding: 1vw;
-    height: 100%;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    min-height: 90vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
 }
 </style>
