@@ -6,6 +6,7 @@
   "bookmarks": [
     {
       "id": 1,
+      "category": [],
       "url": "abc.com"
     },
     {

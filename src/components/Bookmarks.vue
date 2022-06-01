@@ -17,5 +17,8 @@ export default{
     Bookmark
   }
 }
-
 </script>
+
+<style scoped>
+@import '../assets/base.css'
+</style>

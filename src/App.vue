@@ -1,20 +1,28 @@
 <template>
   <Header />
-  <RouterView />
+  <div class="container">
+    <SiderLeft />
+    <RouterView />
+  </div>
 </template>
 
 <script>
 import { RouterView } from 'vue-router'
 import Header from './components/Header.vue'
+import SiderLeft from './components/SiderLeft.vue'
 
 export default{
   name: "App",
   components:{
     Header,
-    RouterView
-  }
+    RouterView,
+    SiderLeft
+}
 }
 </script>
 
 <style scoped>
+.container{
+  display:flex;
+}
 </style>

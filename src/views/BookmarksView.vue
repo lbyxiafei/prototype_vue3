@@ -17,9 +17,7 @@ export default{
   },
   methods:{
     async fetchBookmarks() {
-      // const res = await fetch('http://localhost:5000/bookmarks')
       const res = await fetch('api/bookmarks')
-      console.log(res)
       const data = await res.json();
       return data
     }
