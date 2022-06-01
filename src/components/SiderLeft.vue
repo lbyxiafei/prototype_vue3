@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="sider">
     <h2>All</h2>
     <h2>Algorithm</h2>
     <h2>Github</h2>
@@ -17,5 +17,9 @@ export default{
 </script>
 
 <style scoped>
-@import '../assets/base.css'
+@import '../assets/base.css';
+.sider{
+    background-color: aqua;
+    padding: 1vw;
+}
 </style>

@@ -27,6 +27,9 @@ export default{
 </script>
 
 <style scoped>
+header {
+  background-color: azure;
+}
 nav {
   width: 100%;
   display: inline-block;
@@ -37,7 +40,7 @@ nav {
   color: purple;
   position: absolute;
   right: 5vh;
-  top: 1.3vh;
+  top: 0.8vh;
 }
 .fa-plus:hover{
   background-color: yellow;

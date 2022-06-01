@@ -9,5 +9,5 @@
 </script>
 
 <style scoped>
-@import '../assets/base.css'
+@import '../assets/base.css';
 </style>
