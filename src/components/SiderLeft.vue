@@ -21,5 +21,6 @@ export default{
 .sider{
     background-color: aqua;
     padding: 1vw;
+    height: 100%;
 }
 </style>

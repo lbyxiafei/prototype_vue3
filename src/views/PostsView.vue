@@ -1,5 +1,7 @@
 <template>
-  <h1 class="center-screen">Posts</h1>
+<div class="center-screen">
+  <h1>Posts</h1>
+</div>
 </template>
 
 <script>

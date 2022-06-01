@@ -1,5 +1,7 @@
 <template>
-  <h1 class="center-screen">This is an about page</h1>
+<div class="center-screen">
+  <h1>This is an about page</h1>
+</div>
 </template>
 
 <script>

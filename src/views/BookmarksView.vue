@@ -1,5 +1,7 @@
 <template>
+<div class="container center-screen">
   <Bookmarks :bookmarks="bookmarks"/>
+</div>
 </template>
 
 <script>
@@ -30,4 +32,8 @@ export default{
 
 <style scoped>
 @import '../assets/base.css';
+.container{
+  height: 100%;
+  width: 100%;
+}
 </style>

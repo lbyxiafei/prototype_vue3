@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h3>{{bookmark.url}}</h3>
   </div>
 </template>
@@ -12,3 +12,11 @@ export default{
   }
 }
 </script>
+
+<style scoped>
+@import '../assets/base.css';
+.container{
+  height: 100%;
+  width: 100%;
+}
+</style>

@@ -6,7 +6,6 @@
 </div>
 </template>
 
-
 <script>
 import Bookmark from './Bookmark.vue'
 
@@ -24,6 +23,7 @@ export default{
 <style scoped>
 @import '../assets/base.css';
 .container{
-  background-color: bisque;
+  height: 100%;
+  width: 100%;
 }
 </style>

@@ -1,5 +1,7 @@
 <template>
-  <h1 class="center-screen">Calendar</h1>
+<div class="center-screen">
+  <h1>Calendar</h1>
+</div>
 </template>
 
 <script>

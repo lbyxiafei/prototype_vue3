@@ -1,5 +1,7 @@
 <template>
-  <h1 class="center-screen">Home</h1>
+<div class="center-screen">
+  <h1>Home</h1>
+</div>
 </template>
 
 <script>
