@@ -2,14 +2,14 @@
   <Header />
   <div class="container">
     <SiderLeft />
-    <RouterView />
+    <RouterView class="router"/>
   </div>
 </template>
 
 <script>
-import { RouterView } from 'vue-router'
-import Header from './components/Header.vue'
-import SiderLeft from './components/SiderLeft.vue'
+import { RouterView } from 'vue-router';
+import Header from './components/Header.vue';
+import SiderLeft from './components/SiderLeft.vue';
 
 export default{
   name: "App",
@@ -24,5 +24,8 @@ export default{
 <style scoped>
 .container{
   display:flex;
+}
+.router{
+  background-color: beige;
 }
 </style>

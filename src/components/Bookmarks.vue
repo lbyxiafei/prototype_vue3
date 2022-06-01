@@ -1,7 +1,9 @@
 <template>
+<div class="container">
   <div v-for="bookmark in bookmarks" :key="bookmark.id">
     <Bookmark :bookmark="bookmark"/>
   </div>
+</div>
 </template>
 
 
@@ -21,4 +23,7 @@ export default{
 
 <style scoped>
 @import '../assets/base.css';
+.container{
+  background-color: bisque;
+}
 </style>
