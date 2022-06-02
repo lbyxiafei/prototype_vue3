@@ -1,6 +1,6 @@
 <template>
 <div class="center-screen">
-  <h1>This is an about page</h1>
+  <h1>迷えば、敗れる</h1>
 </div>
 </template>
 

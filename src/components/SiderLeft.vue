@@ -11,8 +11,13 @@
 </template>
 
 <script>
+import SiderItem from './SiderItem.vue';
+
 export default{
-    name:"SiderLeft"
+    name:"SiderLeft",
+    components: {
+        SiderItem
+    }
 }
 </script>
 
