@@ -44,6 +44,7 @@ nav {
   position: absolute;
   right: 5vh;
   top: 0.8vh;
+  cursor: pointer;
 }
 .fa-plus:hover{
   background-color: yellow;
