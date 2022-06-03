@@ -9,11 +9,13 @@
       <i @click="toggleAddTask" class="fa-solid fa-plus"></i>
     </nav>
   </header>
-  <div v-show="showAddTask">{{$route.name}}</div>
+  <AddTask v-show="showAddTask" />
 </template>
 
 <script>
-import { RouterLink} from 'vue-router'
+import AddTask from './AddTAsk.vue';
+import { RouterLink} from 'vue-router';
+
 export default{
   name: "Header",
   data(){
@@ -22,10 +24,11 @@ export default{
     }
   },
   components:{
-      RouterLink
+      RouterLink,
+      AddTask
   },
   methods:{
-    toggleAddTask(e){
+    toggleAddTask(){
       this.showAddTask = !this.showAddTask;
     }
   },
