@@ -31,6 +31,5 @@ export default{
     justify-content: center;
     align-items: center;
     text-align: center;
-    vertical-align: middle;
 }
 </style>
