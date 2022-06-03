@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import AddTask from './AddTAsk.vue';
+import AddTask from './AddTask.vue';
 import { RouterLink} from 'vue-router';
 
 export default{
