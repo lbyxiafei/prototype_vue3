@@ -6,23 +6,29 @@
       <RouterLink to="/posts">Posts</RouterLink> |
       <RouterLink to="/calendar">Calendar</RouterLink> |
       <RouterLink to="/about">About</RouterLink>
-      <i @click="onClick" class="fa-solid fa-plus"></i>
+      <i @click="toggleAddTask" class="fa-solid fa-plus"></i>
     </nav>
   </header>
+  <div v-show="showAddTask">{{$route.name}}</div>
 </template>
 
 <script>
 import { RouterLink} from 'vue-router'
 export default{
-    name: "Header",
-    components:{
-        RouterLink
-    },
-    methods:{
-      onClick(e){
-        console.log(e);
-      }
+  name: "Header",
+  data(){
+    return{
+      showAddTask: false,
     }
+  },
+  components:{
+      RouterLink
+  },
+  methods:{
+    toggleAddTask(e){
+      this.showAddTask = !this.showAddTask;
+    }
+  },
 }
 </script>
 
