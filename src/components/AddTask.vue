@@ -1,6 +1,12 @@
 <template>
 <div class="container">
-  <h3>Add Task: {{$route.name}}</h3>
+  <label>Name:</label>
+  <input>
+  <label>Tags:</label> 
+  <input> 
+  <label>Url:</label>
+  <input>
+  <button>Save</button>
 </div>
 </template>
 
