@@ -6,10 +6,10 @@
       <RouterLink to="/posts">Posts</RouterLink> |
       <RouterLink to="/calendar">Calendar</RouterLink> |
       <RouterLink to="/about">About</RouterLink>
-      <i @click="toggleAddTask" class="fa-solid fa-plus"></i>
+      <i v-show="enableAddTask" @click="toggleAddTask" class="fa-solid fa-plus"></i>
     </nav>
   </header>
-  <AddTask v-show="showAddTask" />
+  <AddTask v-show="showAddTask && enableAddTask" />
 </template>
 
 <script>
@@ -30,6 +30,14 @@ export default{
   methods:{
     toggleAddTask(){
       this.showAddTask = !this.showAddTask;
+    }
+  },
+  computed:{
+    enableAddTask(){
+      if(this.$route.name === 'bookmarks' || this.$route.name === 'posts'){
+        return true;
+      }
+      return false;
     }
   },
 }
