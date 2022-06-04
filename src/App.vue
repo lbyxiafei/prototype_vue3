@@ -1,5 +1,5 @@
 <template>
-  <Header />
+  <Header class="header" />
   <div class="container">
     <RouterView class="router"/>
   </div>
@@ -26,5 +26,8 @@ export default{
   background-color: beige;
   width: 100%;
   height: 100%;
+}
+.header{
+  position: absolute;
 }
 </style>
