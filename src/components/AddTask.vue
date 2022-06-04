@@ -14,7 +14,9 @@
     <input>
     <label>Tags:</label> 
     <input> 
-    <textarea placeholder="..."></textarea>
+    <div>
+      <textarea id="post-editor"></textarea>
+    </div>
     <button>Save</button>
   </div>
 </div>
@@ -38,20 +40,22 @@ export default{
 @import '../assets/base.css';
 .container{
   text-align: center;
+  padding-top: 3px;
   height: 100%;
   width: 100%;
   background-color: burlywood;
 }
 #bookmark{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   text-align: center;
 }
 #post{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   text-align: center;
+}
+#post-editor{
+  margin-top: 3px;
+  height: 40vh;
+  width: 30%;
 }
 </style>
