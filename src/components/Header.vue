@@ -1,4 +1,5 @@
 <template>
+<div class="container">
   <header>
     <nav>
       <RouterLink to="/">Home</RouterLink> |
@@ -9,7 +10,10 @@
       <i v-show="enableAddTask" @click="toggleAddTask" class="fa-solid fa-plus"></i>
     </nav>
   </header>
-  <AddTask v-show="showAddTask && enableAddTask" />
+  <div class="task" v-show="showAddTask && enableAddTask">
+    <AddTask />
+  </div>
+</div>
 </template>
 
 <script>
@@ -44,6 +48,9 @@ export default{
 </script>
 
 <style scoped>
+.container{
+  display: block;
+}
 header {
   padding-top: 1vh;
   min-height: 3vh;
@@ -55,7 +62,11 @@ nav {
   font-size: 1.3rem;
   text-align: center;
 }
+.task {
+  display: block;
+}
 .fa-plus{
+  position: fixed;
   margin-top: 1vh;
   color: purple;
   position: absolute;

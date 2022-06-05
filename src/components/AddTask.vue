@@ -17,6 +17,7 @@
     <div>
       <textarea id="post-editor"></textarea>
     </div>
+    <button>Clear</button>
     <button>Save</button>
   </div>
 </div>
@@ -41,7 +42,8 @@ export default{
 .container{
   text-align: center;
   padding-top: 3px;
-  height: 100%;
+  padding-bottom: 3px;
+  /* min-height: 30%; */
   width: 100%;
   background-color: burlywood;
 }
@@ -56,6 +58,6 @@ export default{
 #post-editor{
   margin-top: 3px;
   height: 40vh;
-  width: 30%;
+  width: 40%;
 }
 </style>
