@@ -1,17 +1,16 @@
 <template>
 <div class="container">
-  <header>
-    <nav>
-      <RouterLink to="/">Home</RouterLink> |
-      <RouterLink to="/bookmarks">Bookmarks</RouterLink> |
-      <RouterLink to="/posts">Posts</RouterLink> |
-      <RouterLink to="/calendar">Calendar</RouterLink> |
-      <RouterLink to="/about">About</RouterLink>
-      <i v-show="enableAddTask" @click="toggleAddTask" class="fa-solid fa-plus"></i>
-    </nav>
-  </header>
-  <div class="task" v-show="showAddTask && enableAddTask">
-    <AddTask />
+  <div class="header">
+    <RouterLink to="/">Home</RouterLink> |
+    <RouterLink to="/bookmarks">Bookmarks</RouterLink> |
+    <RouterLink to="/posts">Posts</RouterLink> |
+    <RouterLink to="/calendar">Calendar</RouterLink> |
+    <RouterLink to="/about">About</RouterLink>
+    <i v-show="enableAddTask && !showAddTask" @click="toggleAddTask" class="fa-solid fa-plus"></i>
+    <i v-show="enableAddTask && showAddTask" @click="toggleAddTask" class="fa-solid fa-circle-xmark"></i>
+  </div>
+  <div class="task" >
+    <AddTask v-show="showAddTask && enableAddTask"/>
   </div>
 </div>
 </template>
@@ -51,29 +50,32 @@ export default{
 .container{
   display: block;
 }
-header {
-  padding-top: 1vh;
-  min-height: 3vh;
+.header {
   background-color: azure;
-}
-nav {
   width: 100%;
   display: inline-block;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 .task {
   display: block;
 }
 .fa-plus{
-  position: fixed;
-  padding-top: 0.4vh;
   color: purple;
-  right: 5vh;
   cursor: pointer;
+  position: fixed;
+  right: 5vh;
 }
 .fa-plus:hover{
-  background-color: yellow;
-  font-size: 120%;
+  font-size: 110%;
+}
+.fa-circle-xmark{
+  color: red;
+  cursor: pointer;
+  position: fixed;
+  right: 5vh;
+}
+.fa-circle-xmark:hover{
+  font-size: 110%;
 }
 </style>

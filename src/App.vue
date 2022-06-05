@@ -24,15 +24,15 @@ export default{
 
 <style scoped>
 .container{
-  /* align-items: stretch; */
-  height: 100vh;
-  width: 97vw;
+  max-height: 98vh;
+  width: 98vw;
+  overflow: hidden;
 }
 .header{
-  position: fixed;
+  display:block;
 }
 .body{
-  display:flex;
+  display:block;
 }
 .router{
   background-color: beige;

@@ -43,7 +43,7 @@ export default{
   text-align: center;
   padding-top: 3px;
   padding-bottom: 3px;
-  /* min-height: 30%; */
+  min-height: 30%;
   width: 100%;
   background-color: burlywood;
 }
