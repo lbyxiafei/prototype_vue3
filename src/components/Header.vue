@@ -67,11 +67,9 @@ nav {
 }
 .fa-plus{
   position: fixed;
-  margin-top: 1vh;
+  padding-top: 0.4vh;
   color: purple;
-  position: absolute;
   right: 5vh;
-  top: 0.8vh;
   cursor: pointer;
 }
 .fa-plus:hover{

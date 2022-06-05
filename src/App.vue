@@ -24,6 +24,7 @@ export default{
 
 <style scoped>
 .container{
+  /* align-items: stretch; */
   height: 100vh;
   width: 97vw;
 }
