@@ -10,13 +10,15 @@
     <i v-show="enableAddTask && showAddTask" @click="toggleAddTask" class="fa-solid fa-circle-xmark"></i>
   </div>
   <div class="task" >
-    <AddTask v-show="showAddTask && enableAddTask" />
+    <AddBookmark v-show="showAddTask && enableAddBookmark" />
+    <AddPost v-show="showAddTask && enableAddPost" />
   </div>
 </div>
 </template>
 
 <script>
-import AddTask from './AddTask.vue';
+import AddBookmark from './AddBookmark.vue';
+import AddPost from './AddPost.vue';
 import { RouterLink} from 'vue-router';
 
 export default{
@@ -28,7 +30,8 @@ export default{
   },
   components:{
       RouterLink,
-      AddTask
+      AddBookmark,
+      AddPost
   },
   methods:{
     toggleAddTask(){
@@ -37,10 +40,13 @@ export default{
   },
   computed:{
     enableAddTask(){
-      if(this.$route.name === 'bookmarks' || this.$route.name === 'posts'){
-        return true;
-      }
-      return false;
+      return this.$route.name==='bookmarks' || this.$route.name==='posts';
+    },
+    enableAddBookmark(){
+      return this.$route.name === 'bookmarks';
+    },
+    enableAddPost(){
+      return this.$route.name === 'posts';
     }
   },
 }

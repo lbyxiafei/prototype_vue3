@@ -1,19 +1,5 @@
 <template>
 <div class="container">
-  <div id="bookmark" v-show="enableAddBookmark">
-    <div>
-      <label>Name:</label>
-      <input v-model="bookmarkName">
-    </div>
-    <div>
-      <label>Tags:</label> 
-      <input v-model="tagInStr"> 
-    </div>
-    <div>
-      <label>Url:</label>
-      <input v-model="bookmarkUrl">
-    </div>
-  </div>
   <div id="post" v-show="enableAddPost">
     <label>Title:</label>
     <input v-model="postTitle">
@@ -24,17 +10,15 @@
     </div>
   </div>
   <button @click="clearInputs">Clear</button>
-  <button @click="$emit('add-task', tagInStr)">Save</button>
+  <button @click="">Save</button>
 </div>
 </template>
 
 <script>
 export default{
-  name:"AddTask",
+  name:"AddPost",
   data() {
     return {
-      bookmarkName: "",
-      bookmarkUrl: "",
       postTitle: "",
       postContent: "",
       tagInStr: "",
@@ -43,8 +27,6 @@ export default{
   },
   methods: {
     clearInputs(){
-      this.bookmarkName = "";
-      this.bookmarkUrl = "";
       this.postTitle = "";
       this.postContent = "";
       this.tagInStr = "";
@@ -52,9 +34,6 @@ export default{
     },
   },
   computed: {
-    enableAddBookmark(){
-      return this.$route.name === 'bookmarks';
-    },
     enableAddPost(){
       return this.$route.name === 'posts';
     }
@@ -71,10 +50,6 @@ export default{
   min-height: 30%;
   width: 100%;
   background-color: burlywood;
-}
-#bookmark{
-  display: block;
-  text-align: center;
 }
 #post{
   display: block;
