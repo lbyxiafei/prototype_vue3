@@ -20,6 +20,6 @@ export default{
   background-color: beige;
   max-height: 98vh;
   width: 97vw;
-  overflow: visible;
+  overflow: scroll;
 }
 </style>
