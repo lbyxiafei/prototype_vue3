@@ -51,6 +51,7 @@ export default{
   display: block;
 }
 .header {
+  position: sticky;
   background-color: azure;
   width: 100%;
   display: inline-block;
@@ -60,20 +61,19 @@ export default{
 .task {
   display: block;
 }
+.fa-solid{
+  position: relative;
+  right: -20vw;
+  cursor: pointer;
+}
 .fa-plus{
   color: purple;
-  cursor: pointer;
-  position: fixed;
-  right: 5vh;
 }
 .fa-plus:hover{
   font-size: 110%;
 }
 .fa-circle-xmark{
   color: red;
-  cursor: pointer;
-  position: fixed;
-  right: 5vh;
 }
 .fa-circle-xmark:hover{
   font-size: 110%;

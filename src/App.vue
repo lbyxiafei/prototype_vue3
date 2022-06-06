@@ -25,8 +25,8 @@ export default{
 <style scoped>
 .container{
   max-height: 98vh;
-  width: 98vw;
-  overflow: hidden;
+  width: 97vw;
+  overflow: visible;
 }
 .header{
   display:block;

@@ -1,13 +1,18 @@
 <template>
 <div class="container">
   <div id="bookmark" v-show="enableAddBookmark">
-    <label>Name:</label>
-    <input>
-    <label>Tags:</label> 
-    <input> 
-    <label>Url:</label>
-    <input>
-    <button>Save</button>
+    <div>
+      <label>Name:</label>
+      <input>
+    </div>
+    <div>
+      <label>Tags:</label> 
+      <input> 
+    </div>
+    <div>
+      <label>Url:</label>
+      <input>
+    </div>
   </div>
   <div id="post" v-show="enableAddPost">
     <label>Title:</label>
@@ -17,9 +22,9 @@
     <div>
       <textarea id="post-editor"></textarea>
     </div>
-    <button>Clear</button>
-    <button>Save</button>
   </div>
+  <button>Clear</button>
+  <button>Save</button>
 </div>
 </template>
 
