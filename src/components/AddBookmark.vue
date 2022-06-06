@@ -7,7 +7,7 @@
     </div>
     <div>
       <label>Tags:</label> 
-      <input v-model="bookmark.tagInStr"> 
+      <input v-model="tagInStr"> 
     </div>
     <div>
       <label>Url:</label>
@@ -27,9 +27,9 @@ export default{
       bookmark:{
         name: "",
         url: "",
-        tagInStr: "",
         tags: [],
-      }
+      },
+      tagInStr: "",
     }
   },
   methods: {
@@ -37,11 +37,12 @@ export default{
       this.bookmark = {
         name: "",
         url: "",
-        tagInStr: "",
         tags: [],
       };
+      this.tagInStr = "";
     },
     saveBookmark(){
+      this.bookmark.tags = this.tagInStr.split(",");
       this.$emit('save-bookmark', this.bookmark);
       this.clearInputs();
     }

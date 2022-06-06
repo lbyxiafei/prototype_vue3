@@ -23,6 +23,7 @@ export default{
 <style scoped>
 @import '../assets/base.css';
 .container{
+  display: block;
   height: 100%;
   width: 100%;
 }

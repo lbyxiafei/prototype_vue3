@@ -5,11 +5,63 @@
   "posts": [],
   "bookmarks": [
     {
-      "name": "LC-Wisdompeak",
+      "name": "LC-wisdompeak",
       "url": "https://github.com/wisdompeak/LeetCode",
-      "tagInStr": "#Cheatsheet #Algo #Github",
-      "tags": [],
-      "id": 3
+      "tags": [
+        "Algo",
+        "Cheatsheet",
+        "Github"
+      ],
+      "id": 4
+    },
+    {
+      "name": "MarkDown",
+      "url": "https://github.com/lbyxiafei/Templates/tree/master/MarkD",
+      "tags": [
+        "Wiki",
+        "Github",
+        "Cheatsheet"
+      ],
+      "id": 5
+    },
+    {
+      "name": "GIT",
+      "url": "https://github.com/lbyxiafei/Templates/tree/master/GIT",
+      "tags": [
+        "Github",
+        "Cheatsheet",
+        "Wiki"
+      ],
+      "id": 6
+    },
+    {
+      "name": "Regex",
+      "url": "https://github.com/lbyxiafei/Templates/tree/master/Regex",
+      "tags": [
+        "Cheatsheet",
+        "Github"
+      ],
+      "id": 7
+    },
+    {
+      "name": "C++入门",
+      "url": "https://github.com/lbyxiafei/Templates/tree/master/C%2B%2B",
+      "tags": [
+        "C++",
+        "Algo",
+        "Wiki"
+      ],
+      "id": 8
+    },
+    {
+      "name": "CompetitiveProgramming",
+      "url": "https://github.com/lbyxiafei/Templates/tree/master/CP",
+      "tags": [
+        "Algo",
+        "Cheatsheet",
+        "Wiki"
+      ],
+      "id": 9
     }
   ]
 }
