@@ -18,6 +18,8 @@ export default{
   components:{
     Header,
     RouterView,
+  },
+  methods: {
   }
 }
 </script>

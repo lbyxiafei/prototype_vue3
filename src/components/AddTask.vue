@@ -3,35 +3,55 @@
   <div id="bookmark" v-show="enableAddBookmark">
     <div>
       <label>Name:</label>
-      <input>
+      <input v-model="bookmarkName">
     </div>
     <div>
       <label>Tags:</label> 
-      <input> 
+      <input v-model="tagInStr"> 
     </div>
     <div>
       <label>Url:</label>
-      <input>
+      <input v-model="bookmarkUrl">
     </div>
   </div>
   <div id="post" v-show="enableAddPost">
     <label>Title:</label>
-    <input>
+    <input v-model="postTitle">
     <label>Tags:</label> 
-    <input> 
+    <input v-model="tagInStr"> 
     <div>
-      <textarea id="post-editor"></textarea>
+      <textarea id="post-editor" v-model="postContent"></textarea>
     </div>
   </div>
-  <button>Clear</button>
-  <button>Save</button>
+  <button @click="clearInputs">Clear</button>
+  <button @click="$emit('add-task', tagInStr)">Save</button>
 </div>
 </template>
 
 <script>
 export default{
   name:"AddTask",
-  computed:{
+  data() {
+    return {
+      bookmarkName: "",
+      bookmarkUrl: "",
+      postTitle: "",
+      postContent: "",
+      tagInStr: "",
+      tags: [],
+    }
+  },
+  methods: {
+    clearInputs(){
+      this.bookmarkName = "";
+      this.bookmarkUrl = "";
+      this.postTitle = "";
+      this.postContent = "";
+      this.tagInStr = "";
+      this.tags = [];
+    },
+  },
+  computed: {
     enableAddBookmark(){
       return this.$route.name === 'bookmarks';
     },

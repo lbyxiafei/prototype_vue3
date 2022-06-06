@@ -22,13 +22,13 @@ export default{
   },
   methods:{
     async fetchBookmarks() {
-      const res = await fetch('api/bookmarks')
+      const res = await fetch('api/bookmarks');
       const data = await res.json();
-      return data
+      return data;
     }
   },
   async created(){
-    this.bookmarks = await this.fetchBookmarks()
+    this.bookmarks = await this.fetchBookmarks();
   }
 }
 </script>

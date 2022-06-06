@@ -10,7 +10,7 @@
     <i v-show="enableAddTask && showAddTask" @click="toggleAddTask" class="fa-solid fa-circle-xmark"></i>
   </div>
   <div class="task" >
-    <AddTask v-show="showAddTask && enableAddTask"/>
+    <AddTask v-show="showAddTask && enableAddTask" />
   </div>
 </div>
 </template>
@@ -33,7 +33,7 @@ export default{
   methods:{
     toggleAddTask(){
       this.showAddTask = !this.showAddTask;
-    }
+    },
   },
   computed:{
     enableAddTask(){
