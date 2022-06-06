@@ -1,6 +1,6 @@
 <template>
 <div class="view-container">
-  <Header />
+  <Header @save-bookmark="saveBookmark" />
   <div class="view-body">
     <SiderLeft />
     <Bookmarks :bookmarks="bookmarks"/>
@@ -26,6 +26,17 @@ export default{
     Bookmarks
   },
   methods:{
+    async saveBookmark(bookmark){
+      const res = await fetch('api/bookmarks', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(bookmark),
+      })
+      const data = await res.json()
+      this.bookmarks.push(data);
+    },
     async fetchBookmarks() {
       const res = await fetch('api/bookmarks');
       const data = await res.json();

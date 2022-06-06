@@ -3,15 +3,15 @@
   <div id="bookmark" v-show="enableAddBookmark">
     <div>
       <label>Name:</label>
-      <input v-model="bookmarkName">
+      <input v-model="bookmark.name">
     </div>
     <div>
       <label>Tags:</label> 
-      <input v-model="tagInStr"> 
+      <input v-model="bookmark.tagInStr"> 
     </div>
     <div>
       <label>Url:</label>
-      <input v-model="bookmarkUrl">
+      <input v-model="bookmark.url">
     </div>
   </div>
   <button @click="clearInputs">Clear</button>
@@ -24,30 +24,32 @@ export default{
   name:"AddBookmark",
   data() {
     return {
-      bookmarkName: "",
-      bookmarkUrl: "",
-      tagInStr: "",
-      tags: [],
+      bookmark:{
+        name: "",
+        url: "",
+        tagInStr: "",
+        tags: [],
+      }
     }
   },
   methods: {
     clearInputs(){
-      this.bookmarkName = "";
-      this.bookmarkUrl = "";
-      this.tagInStr = "";
-      this.tags = [];
+      this.bookmark = {
+        name: "",
+        url: "",
+        tagInStr: "",
+        tags: [],
+      };
     },
     saveBookmark(){
-
+      this.$emit('save-bookmark', this.bookmark);
+      this.clearInputs();
     }
   },
   computed: {
     enableAddBookmark(){
       return this.$route.name === 'bookmarks';
     },
-    enableAddPost(){
-      return this.$route.name === 'posts';
-    }
   }
 }
 </script>

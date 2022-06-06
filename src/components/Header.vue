@@ -10,8 +10,10 @@
     <i v-show="enableAddTask && showAddTask" @click="toggleAddTask" class="fa-solid fa-circle-xmark"></i>
   </div>
   <div class="task" >
-    <AddBookmark v-show="showAddTask && enableAddBookmark" />
-    <AddPost v-show="showAddTask && enableAddPost" />
+    <AddBookmark v-show="showAddTask && enableAddBookmark" 
+      @save-bookmark="$emit('save-bookmark', $event)" />
+    <AddPost v-show="showAddTask && enableAddPost" 
+      @save-post="$emit('save-post', $event)" />
   </div>
 </div>
 </template>
@@ -49,6 +51,7 @@ export default{
       return this.$route.name === 'posts';
     }
   },
+  emits: ['save-bookmark', 'save-post'],
 }
 </script>
 

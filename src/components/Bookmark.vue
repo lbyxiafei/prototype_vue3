@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <h3>{{bookmark.url}}</h3>
+    <h3>{{bookmark.name}}: {{bookmark.url}}</h3>
+    <h3>{{bookmark.tags}}</h3>
   </div>
 </template>
 
