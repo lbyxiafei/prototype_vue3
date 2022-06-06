@@ -15,7 +15,7 @@
     </div>
   </div>
   <button @click="clearInputs">Clear</button>
-  <button @click="">Save</button>
+  <button @click="saveBookmark">Save</button>
 </div>
 </template>
 
@@ -37,6 +37,9 @@ export default{
       this.tagInStr = "";
       this.tags = [];
     },
+    saveBookmark(){
+
+    }
   },
   computed: {
     enableAddBookmark(){
