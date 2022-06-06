@@ -1,13 +1,21 @@
 <template>
-<div class="center-screen">
-  <h1>迷えば、敗れる</h1>
+<div class="view-container">
+  <Header />
+  <div class="view-body">
+    <h1>迷えば、敗れる</h1>
+  </div>
 </div>
 </template>
 
 <script>
-  export default{
-    name: "AboutView"
+import Header from '../components/Header.vue';
+
+export default{
+  name: "AboutView",
+  components: {
+    Header
   }
+}
 </script>
 
 <style scoped>

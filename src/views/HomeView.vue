@@ -1,12 +1,20 @@
 <template>
-<div class="center-screen">
-  <h1>Home</h1>
+<div class="view-container">
+  <Header />
+  <div class="view-body">
+    <h1>Home</h1>
+  </div>
 </div>
 </template>
 
 <script>
+import Header from '../components/Header.vue';
+
 export default{
-  name: "HomeView"
+  name: "HomeView",
+  components: {
+    Header
+  }
 }
 </script>
 

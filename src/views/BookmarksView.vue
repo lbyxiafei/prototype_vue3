@@ -1,11 +1,15 @@
 <template>
-<div class="container center-screen">
-  <SiderLeft />
-  <Bookmarks :bookmarks="bookmarks"/>
+<div class="view-container">
+  <Header />
+  <div class="view-body">
+    <SiderLeft />
+    <Bookmarks :bookmarks="bookmarks"/>
+  </div>
 </div>
 </template>
 
 <script>
+import Header from '../components/Header.vue';
 import Bookmarks from '../components/Bookmarks.vue'
 import SiderLeft from '../components/SiderLeft.vue'
 
@@ -17,6 +21,7 @@ export default{
     }
   },
   components:{
+    Header,
     SiderLeft,
     Bookmarks
   },
@@ -35,8 +40,4 @@ export default{
 
 <style scoped>
 @import '../assets/base.css';
-.container{
-  height: 100%;
-  width: 100%;
-}
 </style>

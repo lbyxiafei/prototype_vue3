@@ -1,13 +1,21 @@
 <template>
-<div class="center-screen">
-  <h1>Posts</h1>
+<div class="view-container">
+  <Header />
+  <div class="view-body">
+    <h1>Posts</h1>
+  </div>
 </div>
 </template>
 
 <script>
-  export default{
-    name: "PostsView"
+import Header from '../components/Header.vue';
+
+export default{
+  name: "PostsView",
+  components: {
+    Header
   }
+}
 </script>
 
 <style scoped>
