@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <div v-for="bookmark in bookmarks" :key="bookmark.id">
+  <div class="bookmark" v-for="bookmark in bookmarks" :key="bookmark.id">
     <Bookmark :bookmark="bookmark"/>
   </div>
 </div>
@@ -23,8 +23,15 @@ export default{
 <style scoped>
 @import '../assets/base.css';
 .container{
-  display: block;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  /* grid-auto-rows: minmax(150px, auto); */
+  grid-gap: 5px;
   height: 100%;
   width: 100%;
+}
+.bookmark{
+  display: block;
+  background-color: azure;
 }
 </style>

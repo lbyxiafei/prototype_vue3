@@ -2,8 +2,6 @@
 <div class="container">
   <div>
     <h3><a :href="bookmark.url" target="_blank">{{bookmark.name}}</a></h3>
-  </div>
-  <div>
     <p>{{bookmark.tags}}</p>
   </div>
 </div>
