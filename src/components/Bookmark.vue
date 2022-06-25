@@ -4,13 +4,7 @@
     <h3><i class="fa-regular fa-pen-to-square" @click="showBookmarkModal = true"></i></h3>
   </div>
   <Teleport to="body">
-    <!-- use the modal component, pass in the prop -->
-    <BookmarkModal :show="showBookmarkModal" @close="showBookmarkModal = false">
-      <template #header>
-        <h3>custom header</h3>
-        <p>xyz</p>
-      </template>
-    </BookmarkModal>
+    <BookmarkModal :show="showBookmarkModal" @close="showBookmarkModal = false" />
   </Teleport>
 </template>
 
