@@ -25,13 +25,13 @@ export default{
 .container{
   display: grid;
   grid-template-columns: auto auto auto auto auto;
-  /* grid-auto-rows: minmax(150px, auto); */
   grid-gap: 5px;
   height: 100%;
   width: 100%;
 }
 .bookmark{
   display: block;
-  background-color: azure;
+  height: 100%;
+  width: 100%;
 }
 </style>

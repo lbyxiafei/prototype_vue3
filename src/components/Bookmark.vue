@@ -1,17 +1,34 @@
 <template>
-<div class="container">
-  <div>
-    <h3><a :href="bookmark.url" target="_blank">{{bookmark.name}}</a></h3>
-    <p>{{bookmark.tags}}</p>
+  <div class="container">
+    <h3 class="test"><a :href="bookmark.url" target="_blank">{{bookmark.name}}</a></h3>
+    <h3><i class="fa-regular fa-pen-to-square" @click="showBookmarkModal = true"></i></h3>
   </div>
-</div>
+  <Teleport to="body">
+    <!-- use the modal component, pass in the prop -->
+    <BookmarkModal :show="showBookmarkModal" @close="showBookmarkModal = false">
+      <template #header>
+        <h3>custom header</h3>
+        <p>xyz</p>
+      </template>
+    </BookmarkModal>
+  </Teleport>
 </template>
 
 <script>
+import BookmarkModal from './BookmarkModal.vue'
+
 export default{
   name: "Bookmark",
+  data(){
+    return {
+      showBookmarkModal: false
+    }
+  },
   props:{
     bookmark: Object
+  },
+  components: {
+    BookmarkModal
   }
 }
 </script>
@@ -20,7 +37,11 @@ export default{
 @import '../assets/base.css';
 .container{
   display: block;
-  height: 100%;
-  width: 100%;
+  text-align: center;
+  background-color: yellowgreen;
+}
+.fa-pen-to-square{
+  color: white;
+  cursor: pointer;
 }
 </style>
