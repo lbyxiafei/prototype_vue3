@@ -19,8 +19,9 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button class="modal-default-button" @click="$emit('close')">Submit</button>
-            <button class="modal-default-button" @click="$emit('close')">Clear</button>
+            <button class="modal-default-button">Submit</button>
+            <button class="modal-default-button">Clear</button>
+            <button class="modal-default-button" @click="$emit('close')">Cancel</button>
           </div>
         </div>
       </div>
