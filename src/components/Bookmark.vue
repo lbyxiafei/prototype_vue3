@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <h3 class="test"><a :href="bookmark.url" target="_blank">{{bookmark.name}}</a></h3>
+    <h3><a :href="bookmark.url" target="_blank">{{bookmark.name}}</a></h3>
     <h3><i class="fa-regular fa-pen-to-square" @click="showBookmarkModal = true"></i></h3>
   </div>
   <Teleport to="body">
-    <BookmarkModal :show="showBookmarkModal" @close="showBookmarkModal = false" />
+    <BookmarkModal :bookmark="bookmark" :show="showBookmarkModal" @close="showBookmarkModal = false" />
   </Teleport>
 </template>
 

@@ -1,32 +1,26 @@
-<script>
-export default {
-  props: {
-    show: Boolean
-  }
-}
-</script>
-
 <template>
-  <Transition name="modal">
+  <Transition @keydown.esc="handleKeyEsc" tabindex="1">
     <div v-if="show" class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div class="modal-header">
-            <slot name="header">default header</slot>
-          </div>
-
+          <div class="modal-header">Edit bookmark</div>
           <div class="modal-body">
-            <slot name="body">default body</slot>
+            <div>
+              <label>Name:</label>
+              <input v-model="bookmark.name" />
+            </div>
+            <div>
+              <label>Tags:</label>
+              <input v-model="bookmark.tags" />
+            </div>
+            <div>
+              <label>Url:</label>
+              <input v-model="bookmark.url" />
+            </div>
           </div>
-
           <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              <button
-                class="modal-default-button"
-                @click="$emit('close')"
-              >OK</button>
-            </slot>
+            <button class="modal-default-button" @click="$emit('close')">Submit</button>
+            <button class="modal-default-button" @click="$emit('close')">Clear</button>
           </div>
         </div>
       </div>
@@ -34,7 +28,21 @@ export default {
   </Transition>
 </template>
 
-<style>
+<script>
+export default {
+  methods:{
+    handleKeyEsc(){
+      this.$emit('close');
+    },
+  },
+  props: {
+    show: Boolean,
+    bookmark: Object
+  },
+}
+</script>
+
+<style scoped>
 .modal-mask {
   position: fixed;
   z-index: 9998;
