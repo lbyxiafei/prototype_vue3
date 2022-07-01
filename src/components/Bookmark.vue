@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <h3><a :href="bookmark.url" target="_blank">{{bookmark.name}}</a></h3>
-    <h3><i class="fa-regular fa-pen-to-square" @click="showBookmarkModal = true"></i></h3>
+    <i class="fa-regular fa-pen-to-square" @click="showBookmarkModal = true"></i>
+    <i class="fa-regular fa-trash-can"></i>
   </div>
   <Teleport to="body">
     <BookmarkModal :bookmark="bookmark" :show="showBookmarkModal" @close="showBookmarkModal = false" />
@@ -34,7 +35,7 @@ export default{
   text-align: center;
   background-color: yellowgreen;
 }
-.fa-pen-to-square{
+.fa-regular{
   color: white;
   cursor: pointer;
 }
