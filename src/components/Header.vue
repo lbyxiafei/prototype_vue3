@@ -9,17 +9,24 @@
     <i v-show="enableAddTask && !showAddTask" @click="toggleAddTask" class="fa-solid fa-plus"></i>
     <i v-show="enableAddTask && showAddTask" @click="toggleAddTask" class="fa-solid fa-circle-xmark"></i>
   </div>
+
+  <Teleport to="body">
+    <BookmarkModal 
+      :bookmark="bookmark" 
+      :show="showAddTask && onBookmarksView" 
+      @save-bookmark="$emit('save-bookmark', $event)" 
+      @close="showAddTask = false" />
+  </Teleport>
+
   <div class="task" >
-    <AddBookmark v-show="showAddTask && enableAddBookmark" 
-      @save-bookmark="$emit('save-bookmark', $event)" />
-    <AddPost v-show="showAddTask && enableAddPost" 
+    <AddPost v-show="showAddTask && onPostsView" 
       @save-post="$emit('save-post', $event)" />
   </div>
 </div>
 </template>
 
 <script>
-import AddBookmark from './AddBookmark.vue';
+import BookmarkModal from './BookmarkModal.vue';
 import AddPost from './AddPost.vue';
 import { RouterLink} from 'vue-router';
 
@@ -28,11 +35,16 @@ export default{
   data(){
     return{
       showAddTask: false,
+      bookmark: {
+        name: "",
+        tags: "",
+        url: ""
+      }
     }
   },
   components:{
       RouterLink,
-      AddBookmark,
+      BookmarkModal,
       AddPost
   },
   methods:{
@@ -44,10 +56,10 @@ export default{
     enableAddTask(){
       return this.$route.name==='bookmarks' || this.$route.name==='posts';
     },
-    enableAddBookmark(){
+    onBookmarksView(){
       return this.$route.name === 'bookmarks';
     },
-    enableAddPost(){
+    onPostsView(){
       return this.$route.name === 'posts';
     }
   },
