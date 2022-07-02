@@ -39,8 +39,8 @@ export default{
         },
         body: JSON.stringify(bookmark),
       })
-      const data = await res.json()
       if(!bookmark.id){
+        const data = await res.json()
         this.bookmarks.push(data);
       }
     },

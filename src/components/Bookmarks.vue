@@ -17,7 +17,7 @@ export default{
   components:{
     Bookmark
   },
-  emits: ['save-bookmark', 'save-post'],
+  emits: ['save-bookmark'],
 }
 </script>
 

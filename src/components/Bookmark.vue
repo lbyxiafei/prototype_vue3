@@ -31,7 +31,7 @@ export default{
   components: {
     BookmarkModal
   },
-  emits: ['save-bookmark', 'save-post'],
+  emits: ['save-bookmark'],
 }
 </script>
 
