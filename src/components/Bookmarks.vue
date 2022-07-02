@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <div class="bookmark" v-for="bookmark in bookmarks" :key="bookmark.id">
-    <Bookmark :bookmark="bookmark"/>
+    <Bookmark :bookmark="bookmark" @save-bookmark="$emit('save-bookmark', $event)"/>
   </div>
 </div>
 </template>
@@ -16,7 +16,8 @@ export default{
   },
   components:{
     Bookmark
-  }
+  },
+  emits: ['save-bookmark', 'save-post'],
 }
 </script>
 

@@ -10,6 +10,7 @@
       :title="'Edit '+bookmark.name"
       :bookmark="bookmark" 
       :tagsInStr="bookmark.tags.join(',')"
+      @save-bookmark="$emit('save-bookmark', $event)" 
       @close-bookmark="showBookmarkModal = false" />
   </Teleport>
 </template>
@@ -29,7 +30,8 @@ export default{
   },
   components: {
     BookmarkModal
-  }
+  },
+  emits: ['save-bookmark', 'save-post'],
 }
 </script>
 

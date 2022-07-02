@@ -3,7 +3,7 @@
   <Header @save-bookmark="saveBookmark" />
   <div class="view-body">
     <SiderLeft />
-    <Bookmarks :bookmarks="bookmarks"/>
+    <Bookmarks :bookmarks="bookmarks" @save-bookmark="saveBookmark"/>
   </div>
 </div>
 </template>
@@ -27,15 +27,22 @@ export default{
   },
   methods:{
     async saveBookmark(bookmark){
-      const res = await fetch('api/bookmarks', {
-        method: 'POST',
+      let url='api/bookmarks', reqMethod='POST';
+      if(bookmark.id){
+        url+='/'+bookmark.id;
+        reqMethod='PUT';
+      }
+      const res = await fetch(url, {
+        method: reqMethod,
         headers: {
           'Content-type': 'application/json',
         },
         body: JSON.stringify(bookmark),
       })
       const data = await res.json()
-      this.bookmarks.push(data);
+      if(!bookmark.id){
+        this.bookmarks.push(data);
+      }
     },
     async fetchBookmarks() {
       const res = await fetch('api/bookmarks');
