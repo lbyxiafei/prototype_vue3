@@ -3,7 +3,7 @@
     <div v-if="show" class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div class="modal-header">Edit bookmark</div>
+          <div class="modal-header">{{title}}</div>
           <div class="modal-body">
             <div>
               <label>Name:</label>
@@ -11,7 +11,7 @@
             </div>
             <div>
               <label>Tags:</label>
-              <input v-model="bookmark.tags" />
+              <input v-model="tagsInStr" />
             </div>
             <div>
               <label>Url:</label>
@@ -19,7 +19,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button class="modal-default-button">Submit</button>
+            <button class="modal-default-button" @click="submitBookmark">Submit</button>
             <button class="modal-default-button">Clear</button>
             <button class="modal-default-button" @click="$emit('close')">Cancel</button>
           </div>
@@ -35,9 +35,14 @@ export default {
     handleKeyEsc(){
       this.$emit('close');
     },
+    submitBookmark(){
+      console.log(this.tagsInStr);
+    },
   },
   props: {
     show: Boolean,
+    title: String,
+    tagsInStr: String,
     bookmark: Object
   },
 }

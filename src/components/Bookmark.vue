@@ -5,7 +5,12 @@
     <i class="fa-regular fa-trash-can"></i>
   </div>
   <Teleport to="body">
-    <BookmarkModal :bookmark="bookmark" :show="showBookmarkModal" @close="showBookmarkModal = false" />
+    <BookmarkModal 
+      :show="showBookmarkModal" 
+      :title="'Edit '+bookmark.name"
+      :bookmark="bookmark" 
+      :tagsInStr="bookmark.tags.join(',')"
+      @close="showBookmarkModal = false" />
   </Teleport>
 </template>
 

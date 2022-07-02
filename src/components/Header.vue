@@ -12,8 +12,10 @@
 
   <Teleport to="body">
     <BookmarkModal 
-      :bookmark="bookmark" 
       :show="showAddTask && onBookmarksView" 
+      :title="'Add new bookmark'"
+      :bookmark="bookmark" 
+      :tagsInStr="''"
       @save-bookmark="$emit('save-bookmark', $event)" 
       @close="showAddTask = false" />
   </Teleport>
