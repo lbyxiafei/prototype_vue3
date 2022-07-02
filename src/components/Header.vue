@@ -20,17 +20,22 @@
       @close-bookmark="showAddTask = false" />
   </Teleport>
 
-  <div class="task" >
-    <AddPost v-show="showAddTask && onPostsView" 
-      @save-post="$emit('save-post', $event)" />
-  </div>
+  <Teleport to="body">
+    <PostModal
+      :show="showAddTask && onPostsView" 
+      :title="''"
+      :post="post" 
+      :tagsInStr="''"
+      @save-post="$emit('save-post', $event)" 
+      @close-post="showAddTask = false" />
+  </Teleport>
 </div>
 </template>
 
 <script>
 import BookmarkModal from './BookmarkModal.vue';
-import AddPost from './AddPost.vue';
-import { RouterLink} from 'vue-router';
+import PostModal from './PostModal.vue';
+import { RouterLink } from 'vue-router';
 
 export default{
   name: "Header",
@@ -39,15 +44,20 @@ export default{
       showAddTask: false,
       bookmark: {
         name: "",
-        tags: "",
+        tags: [], 
         url: ""
+      },
+      post: {
+        title: "",
+        tags: [],
+        content: ""
       }
     }
   },
   components:{
       RouterLink,
       BookmarkModal,
-      AddPost
+      PostModal,
   },
   methods:{
     toggleAddTask(){

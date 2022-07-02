@@ -1,11 +1,11 @@
 <template>
-<div class="view-container">
-  <Header @save-bookmark="saveBookmark" />
-  <div class="view-body">
-    <SiderLeft />
-    <Bookmarks :bookmarks="bookmarks" @save-bookmark="saveBookmark"/>
+  <div class="view-container">
+    <Header @save-bookmark="saveBookmark" />
+    <div class="view-body">
+      <SiderLeft />
+      <Bookmarks :bookmarks="bookmarks" @save-bookmark="saveBookmark"/>
+    </div>
   </div>
-</div>
 </template>
 
 <script>

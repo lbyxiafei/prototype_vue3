@@ -30,6 +30,7 @@
 
 <script>
 export default {
+  name: "BookmarkModal",
   methods:{
     handleKeyEsc(){
       this.$emit('close-bookmark');

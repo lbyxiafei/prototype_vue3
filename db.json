@@ -2,7 +2,17 @@
   "states": [
     {}
   ],
-  "posts": [],
+  "posts": [
+    {
+      "title": "test",
+      "tags": [
+        "book",
+        "algo"
+      ],
+      "content": "今天读了？？",
+      "id": 1
+    }
+  ],
   "bookmarks": [
     {
       "name": "LC-wisdompeak",
