@@ -19,9 +19,9 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button class="modal-default-button" @click="submitBookmark">Submit</button>
+            <button class="modal-default-button" @click="saveBookmark">Submit</button>
             <button class="modal-default-button">Clear</button>
-            <button class="modal-default-button" @click="$emit('close')">Cancel</button>
+            <button class="modal-default-button" @click="$emit('close-bookmark')">Cancel</button>
           </div>
         </div>
       </div>
@@ -33,10 +33,13 @@
 export default {
   methods:{
     handleKeyEsc(){
-      this.$emit('close');
+      this.$emit('close-bookmark');
     },
-    submitBookmark(){
+    saveBookmark(){
       console.log(this.tagsInStr);
+      this.bookmark.tags = this.tagsInStr.split(",");
+      this.$emit('save-bookmark', this.bookmark);
+      this.$emit('close-bookmark');
     },
   },
   props: {

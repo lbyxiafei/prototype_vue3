@@ -17,7 +17,7 @@
       :bookmark="bookmark" 
       :tagsInStr="''"
       @save-bookmark="$emit('save-bookmark', $event)" 
-      @close="showAddTask = false" />
+      @close-bookmark="showAddTask = false" />
   </Teleport>
 
   <div class="task" >

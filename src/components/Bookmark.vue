@@ -10,7 +10,7 @@
       :title="'Edit '+bookmark.name"
       :bookmark="bookmark" 
       :tagsInStr="bookmark.tags.join(',')"
-      @close="showBookmarkModal = false" />
+      @close-bookmark="showBookmarkModal = false" />
   </Teleport>
 </template>
 
