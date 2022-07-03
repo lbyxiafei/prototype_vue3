@@ -1,7 +1,7 @@
 <template>
   <div class="sider">
-    <div v-for="tag in tags">
-      <h4>{{tag}}</h4>
+    <div v-for="tag in tags" :key="tag">
+      <SiderLeftItem :tag="tag" />
     </div>
   </div>
 </template>
