@@ -1,35 +1,34 @@
 <template>
-<div class="sider">
-    <h2>All</h2>
-    <h2>Algorithm</h2>
-    <h2>Github</h2>
-    <h2>SideProject</h2>
-    <h2>Cheatsheet</h2>
-    <h2>Archive</h2>
-    <h2>Work</h2>
-</div>
+  <div class="sider">
+    <div v-for="tag in tags">
+      <h4>{{tag}}</h4>
+    </div>
+  </div>
 </template>
 
 <script>
-import SiderItem from './SiderItem.vue';
+import SiderLeftItem from './SiderLeftItem.vue';
 
 export default{
-    name:"SiderLeft",
-    components: {
-        SiderItem
-    }
+  name:"SiderLeft",
+  props: {
+    tags: Array
+  },
+  components: {
+    SiderLeftItem
+  }
 }
 </script>
 
 <style scoped>
 @import '../assets/base.css';
 .sider{
-    background-color: aqua;
-    padding-left: 1vw;
-    padding-right: 1vw;
-    min-height: 90vh;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  background-color: aqua;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  min-height: 90vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 </style>

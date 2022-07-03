@@ -2,7 +2,7 @@
   <div class="view-container">
     <Header @save-bookmark="saveBookmark" />
     <div class="view-body">
-      <SiderLeft />
+      <SiderLeft :tags="bookmarkTags" />
       <Bookmarks :bookmarks="bookmarks" @save-bookmark="saveBookmark"/>
     </div>
   </div>
@@ -17,7 +17,8 @@ export default{
   name: "BookmarksView",
   data(){
     return {
-      bookmarks:[]
+      bookmarks:[],
+      bookmarkTagMap:{}
     }
   },
   components:{
@@ -48,6 +49,18 @@ export default{
       const res = await fetch('api/bookmarks');
       const data = await res.json();
       return data;
+    }
+  },
+  computed: {
+    bookmarkTags(){
+      let tagSet=new Set();
+      for(var i in this.bookmarks){
+        for(var j in this.bookmarks[i].tags){
+          let tag=this.bookmarks[i].tags[j];
+          tagSet.add(tag);
+        }
+      }
+      return Array.from(tagSet);
     }
   },
   async created(){
