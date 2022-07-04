@@ -1,7 +1,7 @@
 <template>
   <div class="sider">
     <div v-for="tag in tags" :key="tag">
-      <SiderLeftItem :tag="tag" />
+      <SiderLeftItem :tag="tag"/>
     </div>
   </div>
 </template>
@@ -13,6 +13,8 @@ export default{
   name:"SiderLeft",
   props: {
     tags: Array
+  },
+  methods: {
   },
   components: {
     SiderLeftItem

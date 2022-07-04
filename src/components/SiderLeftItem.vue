@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :id="'sider'+tag" @click="clickTag">
+  <div class="container" :id="'sider_'+tag" @click="clickTag">
     <h3>{{tag}}</h3>
   </div>
 </template>
@@ -17,12 +17,13 @@ export default{
   },
   methods:{
     clickTag(){
+      console.log(this.tag);
       this.tagSelected = !this.tagSelected;
       if(this.tagSelected) {
-        document.querySelector('#sider'+this.tag).setAttribute('style', 'background:wheat');
+        document.querySelector('#sider_'+this.tag).setAttribute('style', 'background:wheat');
       }
       else{
-        document.querySelector('#sider'+this.tag).setAttribute('style', 'background:null');
+        document.querySelector('#sider_'+this.tag).setAttribute('style', 'background:null');
       }
     }
   }
