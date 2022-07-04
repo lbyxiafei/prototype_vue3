@@ -7,7 +7,8 @@
         @click-tag="clickTag" />
       <Bookmarks 
         :bookmarks="filteredBookmarks" 
-        @save-bookmark="saveBookmark"/>
+        @save-bookmark="saveBookmark"
+        @delete-bookmark="deleteBookmark" />
     </div>
   </div>
 </template>
@@ -52,6 +53,9 @@ export default{
         const data = await res.json()
         this.bookmarks.push(data);
       }
+    },
+    deleteBookmark(bookmark){
+      console.log(bookmark);
     },
     async fetchBookmarks() {
       const res = await fetch('api/bookmarks');

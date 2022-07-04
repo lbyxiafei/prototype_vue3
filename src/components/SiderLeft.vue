@@ -21,7 +21,6 @@ export default{
   },
   methods: {
     clickTag(tag){
-      console.log(this.tagSelected + ',' + tag);
       if(this.tagSelected!==null){
         document.querySelector(this.tagSelected)?.setAttribute('style', 'background:null');
       }

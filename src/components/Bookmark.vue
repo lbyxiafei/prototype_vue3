@@ -1,8 +1,10 @@
 <template>
   <div class="container">
     <h3><a :href="bookmark.url" target="_blank">{{bookmark.name}}</a></h3>
-    <i class="fa-regular fa-pen-to-square" @click="showBookmarkModal = true"></i>
-    <i class="fa-regular fa-trash-can"></i>
+    <i class="fa-regular fa-pen-to-square" 
+      @click="showBookmarkModal = true" />
+    <i class="fa-regular fa-trash-can" 
+      @click="$emit('delete-bookmark', bookmark)" />
   </div>
   <Teleport to="body">
     <BookmarkModal 
@@ -31,7 +33,9 @@ export default{
   components: {
     BookmarkModal
   },
-  emits: ['save-bookmark'],
+  methods: {
+  },
+  emits: ['save-bookmark', 'delete-bookmark'],
 }
 </script>
 
@@ -45,5 +49,8 @@ export default{
 .fa-regular{
   color: white;
   cursor: pointer;
+}
+.fa-regular:hover{
+  font-size: 110%;
 }
 </style>
