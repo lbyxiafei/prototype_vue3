@@ -48,14 +48,25 @@ export default{
           'Content-type': 'application/json',
         },
         body: JSON.stringify(bookmark),
-      })
+      });
       if(!bookmark.id){
         const data = await res.json()
         this.bookmarks.push(data);
       }
     },
     async deleteBookmark(bookmark){
-      console.log(bookmark);
+      await fetch(`api/bookmarks/${bookmark.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-type': 'application/json',
+        }
+      }).then(
+        response => {
+          if(response.status===200){
+            this.bookmarks=this.bookmarks.filter(e => e.id!==bookmark.id);
+          }
+        }
+      );
     },
     async fetchBookmarks() {
       const res = await fetch('api/bookmarks');

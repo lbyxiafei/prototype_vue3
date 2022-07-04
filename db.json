@@ -45,7 +45,8 @@
       "tags": [
         "Algo",
         "Cheatsheet",
-        "Github"
+        "Github",
+        "LC"
       ],
       "id": 4
     },
@@ -110,7 +111,7 @@
       "name": "LC-主页",
       "url": "https://leetcode.com/lbyxiafei/",
       "tags": [
-        "Algo"
+        "LC"
       ],
       "id": 11
     },
@@ -118,7 +119,7 @@
       "name": "LC-problems",
       "url": "https://leetcode.com/problemset/all/",
       "tags": [
-        "Algo"
+        "LC"
       ],
       "id": 12
     },
@@ -126,7 +127,7 @@
       "name": "LC-Contest",
       "url": "https://leetcode.com/contest/",
       "tags": [
-        "Algo"
+        "LC"
       ],
       "id": 13
     },
@@ -134,14 +135,14 @@
       "name": "LCCN-problems",
       "url": "https://leetcode.cn/problemset/all/",
       "tags": [
-        "Algo"
+        "LC"
       ],
       "id": 14
     },
     {
-      "name": "test",
+      "name": "ACWing",
       "tags": [
-        "test"
+        "Algo"
       ],
       "url": "http://www.google.com",
       "id": 15
@@ -170,30 +171,6 @@
       ],
       "url": "http://bilibili.com",
       "id": 18
-    },
-    {
-      "name": "test5",
-      "tags": [
-        "test"
-      ],
-      "url": "http://www.acwing.com",
-      "id": 19
-    },
-    {
-      "name": "test66",
-      "tags": [
-        "test"
-      ],
-      "url": "",
-      "id": 20
-    },
-    {
-      "name": "test77",
-      "tags": [
-        "test"
-      ],
-      "url": "",
-      "id": 21
     }
   ]
 }
