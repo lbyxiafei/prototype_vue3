@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :id="'sider_'+tag" @click="clickTag">
+  <div class="container" :id="'sider_'+tag" @click="$emit('click-tag',tag)">
     <h3>{{tag}}</h3>
   </div>
 </template>
@@ -16,16 +16,6 @@ export default{
     tag: String
   },
   methods:{
-    clickTag(){
-      console.log(this.tag);
-      this.tagSelected = !this.tagSelected;
-      if(this.tagSelected) {
-        document.querySelector('#sider_'+this.tag).setAttribute('style', 'background:wheat');
-      }
-      else{
-        document.querySelector('#sider_'+this.tag).setAttribute('style', 'background:null');
-      }
-    }
   }
 }
 </script>

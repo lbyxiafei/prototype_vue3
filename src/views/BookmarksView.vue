@@ -2,8 +2,12 @@
   <div class="view-container">
     <Header @save-bookmark="saveBookmark" />
     <div class="view-body">
-      <SiderLeft :tags="bookmarkTags" />
-      <Bookmarks :bookmarks="bookmarks" @save-bookmark="saveBookmark"/>
+      <SiderLeft 
+        :tags="bookmarkTags" 
+        @click-tag="clickTag" />
+      <Bookmarks 
+        :bookmarks="filteredBookmarks" 
+        @save-bookmark="saveBookmark"/>
     </div>
   </div>
 </template>
@@ -17,6 +21,7 @@ export default{
   name: "BookmarksView",
   data(){
     return {
+      tag: null,
       bookmarks:[],
       bookmarkTagMap:{}
     }
@@ -27,6 +32,9 @@ export default{
     Bookmarks
   },
   methods:{
+    clickTag(tag){
+      this.tag=tag;
+    },
     async saveBookmark(bookmark){
       let url='api/bookmarks', reqMethod='POST';
       if(bookmark.id){
@@ -61,6 +69,11 @@ export default{
         }
       }
       return Array.from(tagSet);
+    },
+    filteredBookmarks(){
+      return this.tag===null 
+        ? this.bookmarks 
+        : this.bookmarks.filter(bk => bk.tags.some(t => t===this.tag));
     }
   },
   async created(){
