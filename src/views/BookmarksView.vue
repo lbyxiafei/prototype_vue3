@@ -54,7 +54,7 @@ export default{
         this.bookmarks.push(data);
       }
     },
-    deleteBookmark(bookmark){
+    async deleteBookmark(bookmark){
       console.log(bookmark);
     },
     async fetchBookmarks() {
@@ -65,14 +65,13 @@ export default{
   },
   computed: {
     bookmarkTags(){
-      let tagSet=new Set();
-      for(var i in this.bookmarks){
-        for(var j in this.bookmarks[i].tags){
-          let tag=this.bookmarks[i].tags[j];
-          tagSet.add(tag);
-        }
-      }
-      return Array.from(tagSet);
+      return Array.from(new Set(
+        this.bookmarks===null || this.bookmarks.length===0 
+        ? []
+        : this.bookmarks
+          .map(function(e){ return e.tags; })
+          .reduce(function(a,b){ return a.concat(b); })
+      ));
     },
     filteredBookmarks(){
       return this.tag===null 
