@@ -3,18 +3,18 @@
     <div v-if="show" class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div class="modal-header">{{title}}</div>
+          <div class="modal-header">:{{title}}</div>
           <div class="modal-body">
-            <div>
+            <div class="post-title">
               <label>Title:</label>
               <input v-model="post.title" />
             </div>
-            <div>
+            <div class="post-tags">
               <label>Tags:</label>
               <input v-model="tagsInStr" />
             </div>
-            <div>
-              <textarea v-model="post.content" />
+            <div class="post-content-container">
+              <textarea class="post-content" v-model="post.content" />
             </div>
           </div>
           <div class="modal-footer">
@@ -30,6 +30,12 @@
 <script>
 export default {
   name: "PostModal",
+  props: {
+    show: Boolean,
+    title: String,
+    tagsInStr: String,
+    post: Object
+  },
   methods:{
     handleKeyEsc(){
       this.$emit('close-post');
@@ -40,16 +46,24 @@ export default {
       this.$emit('close-post');
     },
   },
-  props: {
-    show: Boolean,
-    title: String,
-    tagsInStr: String,
-    post: Object
-  },
 }
 </script>
 
 <style scoped>
+.post-title{
+  text-align: center;
+}
+.post-tags{
+  text-align: center;
+}
+.post-content-container{
+  height: 40vh;
+  text-align: center;
+}
+.post-content{
+  height: 100%;
+  width: 100%;
+}
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -68,7 +82,8 @@ export default {
 }
 
 .modal-container {
-  width: 300px;
+  height: 50%;
+  width: 50%;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
@@ -84,6 +99,7 @@ export default {
 
 .modal-body {
   margin: 20px 0;
+  height: 100%;
 }
 
 .modal-default-button {
