@@ -45,7 +45,7 @@ export default{
       }
     },
     async fetchPosts() {
-      const res = await fetch('api/posts');
+      const res = await fetch('api/notes/posts/');
       const data = await res.json();
       return data;
     }
