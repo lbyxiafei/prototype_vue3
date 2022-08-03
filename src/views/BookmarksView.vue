@@ -69,7 +69,7 @@ export default{
       );
     },
     async fetchBookmarks() {
-      const res = await fetch('api/bookmarks');
+      const res = await fetch('api/notes/bookmarks/');
       const data = await res.json();
       return data;
     }

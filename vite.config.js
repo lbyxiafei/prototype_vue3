@@ -12,12 +12,10 @@ export default defineConfig({
     },
   },
   server: {
-    // https://vitejs.dev/config/#server-proxy
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'http://24.17.206.63:8000/',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
   }
