@@ -37,7 +37,7 @@ export default{
       this.tag=tag;
     },
     async saveBookmark(bookmark){
-      let url='api/bookmarks', reqMethod='POST';
+      let url='api/notes/bookmarks/', reqMethod='POST';
       if(bookmark.id){
         url+='/'+bookmark.id;
         reqMethod='PUT';
@@ -55,7 +55,7 @@ export default{
       }
     },
     async deleteBookmark(bookmark){
-      await fetch(`api/bookmarks/${bookmark.id}`, {
+      await fetch(`api/notes/bookmarks/${bookmark.id}/`, {
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json',
@@ -76,18 +76,20 @@ export default{
   },
   computed: {
     bookmarkTags(){
-      return Array.from(new Set(
-        this.bookmarks===null || this.bookmarks.length===0 
-        ? []
-        : this.bookmarks
-          .map(function(e){ return e.tags; })
-          .reduce(function(a,b){ return a.concat(b); })
-      ));
+      let tags=[];
+      this.bookmarks.forEach(bmk => {
+        bmk.tags.forEach(tg => {
+          if(!tags.includes(tg.name)){
+            tags.push(tg.name);
+          }
+        });
+      });
+      return tags;
     },
     filteredBookmarks(){
       return this.tag===null 
         ? this.bookmarks 
-        : this.bookmarks.filter(bk => bk.tags.some(t => t===this.tag));
+        : this.bookmarks.filter(bk => bk.tags.some(t => t.name===this.tag));
     }
   },
   async created(){

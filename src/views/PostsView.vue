@@ -10,8 +10,8 @@
 
 <script>
 import Header from '../components/Header.vue';
-import Posts from '../components/Posts.vue'
-import SiderLeft from '../components/SiderLeft.vue'
+import Posts from '../components/Posts.vue';
+import SiderLeft from '../components/SiderLeft.vue';
 
 export default{
   name: "PostsView",
