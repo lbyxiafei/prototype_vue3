@@ -13,9 +13,7 @@
   <Teleport to="body">
     <BookmarkModal 
       :show="showAddTask && onBookmarksView" 
-      :title="'Add new bookmark'"
-      :bookmark="bookmark" 
-      :tagsInStr="''"
+      :bookmark="{title:'',url:'',tags:[]}" 
       @save-bookmark="$emit('save-bookmark', $event)" 
       @close-bookmark="showAddTask = false" />
   </Teleport>
@@ -23,9 +21,7 @@
   <Teleport to="body">
     <PostModal
       :show="showAddTask && onPostsView" 
-      :title="''"
-      :post="post" 
-      :tagsInStr="''"
+      :post="{title:'',tags:[],content:''}" 
       @save-post="$emit('save-post', $event)" 
       @close-post="showAddTask = false" />
   </Teleport>
@@ -42,16 +38,6 @@ export default{
   data(){
     return{
       showAddTask: false,
-      bookmark: {
-        name: "",
-        tags: [], 
-        url: ""
-      },
-      post: {
-        title: "",
-        tags: [],
-        content: ""
-      }
     }
   },
   components:{

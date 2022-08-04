@@ -3,7 +3,6 @@
     <div v-if="show" class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div class="modal-header">:{{title}}</div>
           <div class="modal-body">
             <div class="post-title">
               <label>Title:</label>
@@ -11,7 +10,6 @@
             </div>
             <div class="post-tags">
               <label>Tags:</label>
-              <input v-model="tagsInStr" />
             </div>
             <div class="post-content-container">
               <textarea class="post-content" v-model="post.content" />
@@ -33,7 +31,6 @@ export default {
   props: {
     show: Boolean,
     title: String,
-    tagsInStr: String,
     post: Object
   },
   methods:{
@@ -41,7 +38,6 @@ export default {
       this.$emit('close-post');
     },
     savePost(){
-      this.post.tags = this.tagsInStr.split(",");
       this.$emit('save-post', this.post);
       this.$emit('close-post');
     },

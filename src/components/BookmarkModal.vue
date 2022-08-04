@@ -3,19 +3,21 @@
     <div v-if="show" class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div class="modal-header">{{title}}</div>
           <div class="modal-body">
             <div>
               <label>Name:</label>
-              <input v-model="bookmark.name" />
-            </div>
-            <div>
-              <label>Tags:</label>
-              <input v-model="tagsInStr" />
+              <input v-model="bookmark.title" />
             </div>
             <div>
               <label>Url:</label>
               <input v-model="bookmark.url" />
+            </div>
+            <div>
+              <template v-for="tg in bookmark.tags" :key="tg.name">
+                {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)">x</button>
+              </template>
+              <br/>
+              <input v-model="newTag"/><button class="btn btn-add" @click="addTag(newTag)">+</button>
             </div>
           </div>
           <div class="modal-footer">
@@ -31,26 +33,42 @@
 <script>
 export default {
   name: "BookmarkModal",
+  data(){
+    return {
+      newTag: ""
+    }
+  },
   methods:{
     handleKeyEsc(){
       this.$emit('close-bookmark');
     },
     saveBookmark(){
-      this.bookmark.tags = this.tagsInStr.split(",");
       this.$emit('save-bookmark', this.bookmark);
       this.$emit('close-bookmark');
     },
+    removeTag(tagName){
+      this.bookmark.tags = this.bookmark.tags.filter(tg => tg.name !== tagName);
+    },
+    addTag(tagName){
+      this.bookmark.tags.push({'name':tagName});
+      this.newTag="";
+    }
   },
   props: {
     show: Boolean,
-    title: String,
-    tagsInStr: String,
     bookmark: Object
   },
 }
 </script>
 
 <style scoped>
+.btn-close {
+  background-color: red;
+  margin-right: 1px;
+}
+.btn-add {
+  background-color: green;
+}
 .modal-mask {
   position: fixed;
   z-index: 9998;
