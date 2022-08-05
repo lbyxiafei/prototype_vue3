@@ -50,7 +50,9 @@ export default {
       this.bookmark.tags = this.bookmark.tags.filter(tg => tg.name !== tagName);
     },
     addTag(tagName){
-      this.bookmark.tags.push({'name':tagName});
+      if(tagName){
+        this.bookmark.tags.push({'name':tagName});
+      }
       this.newTag="";
     }
   },

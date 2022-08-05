@@ -55,18 +55,20 @@ export default{
       }
     },
     async deleteBookmark(bookmark){
-      await fetch(`api/notes/bookmarks/${bookmark.id}/`, {
-        method: 'DELETE',
-        headers: {
-          'Content-type': 'application/json',
-        }
-      }).then(
-        response => {
-          if(response.status===200){
-            this.bookmarks=this.bookmarks.filter(e => e.id!==bookmark.id);
+      if(confirm(`Sure to delete ${bookmark.title}?`)){
+        await fetch(`api/notes/bookmarks/${bookmark.id}/`, {
+          method: 'DELETE',
+          headers: {
+            'Content-type': 'application/json',
           }
-        }
-      );
+        }).then(
+          response => {
+            if(response.status===200 || response.status===204){
+              this.bookmarks=this.bookmarks.filter(e => e.id!==bookmark.id);
+            }
+          }
+        );
+      }
     },
     async fetchBookmarks() {
       const res = await fetch('api/notes/bookmarks/');
