@@ -1,7 +1,9 @@
 <template>
 <div class="container">
   <div class="post" v-for="post in posts" :key="post.id">
-    <Post :post="post" @save-post="$emit('save-post', $event)"/>
+    <Post :post="post" 
+      @save-post="$emit('save-post', $event)"
+      @delete-post="$emit('delete-post', $event)" />
   </div>
 </div>
 </template>
@@ -17,7 +19,7 @@ export default{
   components: {
     Post
   },
-  emits: ['save-post']
+  emits: ['save-post', 'delete-post']
 }
 </script>
 

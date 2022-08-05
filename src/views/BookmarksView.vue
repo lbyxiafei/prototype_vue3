@@ -2,11 +2,8 @@
   <div class="view-container">
     <Header @save-bookmark="saveBookmark" />
     <div class="view-body">
-      <SiderLeft 
-        :tags="bookmarkTags" 
-        @click-tag="clickTag" />
-      <Bookmarks 
-        :bookmarks="filteredBookmarks" 
+      <SiderLeft :tags="bookmarkTags" @click-tag="clickTag" />
+      <Bookmarks :bookmarks="filteredBookmarks" 
         @save-bookmark="saveBookmark"
         @delete-bookmark="deleteBookmark" />
     </div>
@@ -23,8 +20,7 @@ export default{
   data(){
     return {
       tag: null,
-      bookmarks:[],
-      bookmarkTagMap:{}
+      bookmarks:[]
     }
   },
   components:{
@@ -63,7 +59,7 @@ export default{
           }
         }).then(
           response => {
-            if(response.status===200 || response.status===204){
+            if(response.status===200){
               this.bookmarks=this.bookmarks.filter(e => e.id!==bookmark.id);
             }
           }

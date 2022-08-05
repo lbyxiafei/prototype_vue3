@@ -2,8 +2,10 @@
   <div class="view-container">
     <Header @save-post="savePost" />
     <div class="view-body">
-      <SiderLeft />
-      <Posts :posts="posts" @save-post="savePost"/>
+      <SiderLeft :tags="postTags" @click-tag="clickTag" />
+      <Posts :posts="filteredPosts" 
+        @save-post="savePost"
+        @delete-post="deletePost" />
     </div>
   </div>
 </template>
@@ -17,6 +19,7 @@ export default{
   name: "PostsView",
   data(){
     return {
+      tag: null,
       posts: []
     }
   },
@@ -26,10 +29,13 @@ export default{
     Posts
   },
   methods:{
+    clickTag(tag){
+      this.tag=tag;
+    },
     async savePost(post){
-      let url='api/posts', reqMethod='POST';
+      let url='api/notes/posts/', reqMethod='POST';
       if(post.id){
-        url+='/'+post.id;
+        url+=post.id+'/';
         reqMethod='PUT';
       }
       const res = await fetch(url, {
@@ -44,6 +50,22 @@ export default{
         this.posts.push(data);
       }
     },
+    async deletePost(post){
+      if(confirm(`Sure to delete ${post.title}?`)){
+        await fetch(`api/notes/posts/${post.id}/`, {
+          method: 'DELETE',
+          headers: {
+            'Content-type': 'application/json',
+          }
+        }).then(
+          response => {
+            if(response.status===200){
+              this.posts=this.posts.filter(e => e.id!==post.id);
+            }
+          }
+        );
+      }
+    },
     async fetchPosts() {
       const res = await fetch('api/notes/posts/');
       const data = await res.json();
@@ -52,7 +74,25 @@ export default{
   },
   async created(){
     this.posts= await this.fetchPosts();
-  }
+  },
+  computed: {
+    postTags(){
+      let tags=[];
+      this.posts.forEach(bmk => {
+        bmk.tags.forEach(tg => {
+          if(!tags.includes(tg.name)){
+            tags.push(tg.name);
+          }
+        });
+      });
+      return tags;
+    },
+    filteredPosts(){
+      return this.tag===null 
+        ? this.posts
+        : this.posts.filter(p => p.tags.some(t => t.name===this.tag));
+    }
+  },
 }
 </script>
 

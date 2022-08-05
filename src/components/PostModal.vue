@@ -8,11 +8,15 @@
               <label>Title:</label>
               <input v-model="post.title" />
             </div>
-            <div class="post-tags">
-              <label>Tags:</label>
-            </div>
             <div class="post-content-container">
               <textarea class="post-content" v-model="post.content" />
+            </div>
+            <div class="post-tags">
+              <template v-for="tg in post.tags" :key="tg.name">
+                {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)">x</button>
+              </template>
+              <br/>
+              <input v-model="newTag"/><button class="btn btn-add" @click="addTag(newTag)">+</button>
             </div>
           </div>
           <div class="modal-footer">
@@ -30,8 +34,12 @@ export default {
   name: "PostModal",
   props: {
     show: Boolean,
-    title: String,
     post: Object
+  },
+  data(){
+    return {
+      newTag: "",
+    }
   },
   methods:{
     handleKeyEsc(){
@@ -41,11 +49,27 @@ export default {
       this.$emit('save-post', this.post);
       this.$emit('close-post');
     },
+    removeTag(tagName){
+      this.post.tags = this.post.tags.filter(tg => tg.name !== tagName);
+    },
+    addTag(tagName){
+      if(tagName){
+        this.post.tags.push({'name':tagName});
+      }
+      this.newTag="";
+    },
   },
 }
 </script>
 
 <style scoped>
+.btn-close {
+  background-color: red;
+  margin-right: 1px;
+}
+.btn-add {
+  background-color: green;
+}
 .post-title{
   text-align: center;
 }

@@ -1,15 +1,13 @@
 <template>
   <div class="container">
     <h3>{{post.title}}</h3>
-    <i class="fa-regular fa-pen-to-square" @click="showPostModal= true"></i>
-    <i class="fa-regular fa-trash-can"></i>
+    <i class="fa-regular fa-pen-to-square" @click="showPostModal= true" />
+    <i class="fa-regular fa-trash-can" @click="$emit('delete-post', post)" />
   </div>
   <Teleport to="body">
     <PostModal
       :show="showPostModal" 
-      :title="post.title"
       :post="post" 
-      :tagsInStr="post.tags.join(',')"
       @save-post="$emit('save-post', $event)" 
       @close-post="showPostModal = false" />
   </Teleport>
@@ -31,7 +29,7 @@ export default{
   components: {
     PostModal
   },
-  emits: ['save-post'],
+  emits: ['save-post', 'delete-post'],
 }
 </script>
 
@@ -45,5 +43,8 @@ export default{
 .fa-regular{
   color: white;
   cursor: pointer;
+}
+.fa-regular:hover{
+  font-size: 110%;
 }
 </style>

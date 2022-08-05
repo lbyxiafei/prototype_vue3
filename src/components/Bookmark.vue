@@ -1,10 +1,8 @@
 <template>
   <div class="container">
     <h3><a :href="bookmark.url" target="_blank">{{bookmark.title}}</a></h3>
-    <i class="fa-regular fa-pen-to-square" 
-      @click="showBookmarkModal = true" />
-    <i class="fa-regular fa-trash-can" 
-      @click="$emit('delete-bookmark', bookmark)" />
+    <i class="fa-regular fa-pen-to-square" @click="showBookmarkModal = true" />
+    <i class="fa-regular fa-trash-can" @click="$emit('delete-bookmark', bookmark)" />
   </div>
   <Teleport to="body">
     <BookmarkModal 
