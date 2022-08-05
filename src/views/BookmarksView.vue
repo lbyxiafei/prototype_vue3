@@ -69,7 +69,6 @@ export default{
       );
     },
     async fetchBookmarks() {
-      console.log(import.meta.env.VITE_NOTES_URL);
       const res = await fetch('api/notes/bookmarks/');
       const data = await res.json();
       return data;
