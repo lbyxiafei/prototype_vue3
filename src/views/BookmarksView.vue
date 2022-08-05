@@ -39,7 +39,7 @@ export default{
     async saveBookmark(bookmark){
       let url='api/notes/bookmarks/', reqMethod='POST';
       if(bookmark.id){
-        url+=bookmark.id;
+        url+=bookmark.id+'/';
         reqMethod='PUT';
       }
       const res = await fetch(url, {
