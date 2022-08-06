@@ -41,7 +41,7 @@ export default{
       const res = await fetch(url, {
         method: reqMethod,
         headers: {
-          'Content-type': 'application/json',
+          'Content-type': 'application/json'
         },
         body: JSON.stringify(bookmark),
       });
@@ -55,7 +55,7 @@ export default{
         await fetch(`api/notes/bookmarks/${bookmark.id}/`, {
           method: 'DELETE',
           headers: {
-            'Content-type': 'application/json',
+            'Content-type': 'application/json'
           }
         }).then(
           response => {
@@ -68,8 +68,16 @@ export default{
     },
     async fetchBookmarks() {
       console.log(import.meta.env.VITE_NOTES_URL);
-      const res = await fetch('api/notes/bookmarks/');
+      const res = await fetch('api/notes/bookmarks/', {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json'
+        }
+      }
+      );
+      console.log(res);
       const data = await res.json();
+      console.log(data);
       return data;
     }
   },

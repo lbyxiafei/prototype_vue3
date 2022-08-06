@@ -41,7 +41,7 @@ export default{
       const res = await fetch(url, {
         method: reqMethod,
         headers: {
-          'Content-type': 'application/json',
+          'Content-type': 'application/json'
         },
         body: JSON.stringify(post),
       })
@@ -55,7 +55,7 @@ export default{
         await fetch(`api/notes/posts/${post.id}/`, {
           method: 'DELETE',
           headers: {
-            'Content-type': 'application/json',
+            'Content-type': 'application/json'
           }
         }).then(
           response => {
