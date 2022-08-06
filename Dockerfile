@@ -1,6 +1,4 @@
-FROM alpine:3.15
-
-ENV NODE_VERSION 16.16.0
+FROM node:16.16-alpine as builder
 
 WORKDIR /vue
 
