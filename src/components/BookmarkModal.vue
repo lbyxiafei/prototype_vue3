@@ -33,6 +33,10 @@
 <script>
 export default {
   name: "BookmarkModal",
+  props: {
+    show: Boolean,
+    bookmark: Object
+  },
   data(){
     return {
       newTag: ""
@@ -55,10 +59,6 @@ export default {
       }
       this.newTag="";
     }
-  },
-  props: {
-    show: Boolean,
-    bookmark: Object
   },
 }
 </script>
