@@ -68,17 +68,35 @@ export default{
     },
     async fetchBookmarks() {
       console.log(import.meta.env.VITE_NOTES_URL);
-      const res = await fetch('api/notes/bookmarks/', {
-        method: 'GET',
-        headers: {
-          'Content-type': 'application/json'
-        }
+      // fetch('api/notes/bookmarks/')
+      //   .then(res=>{
+      //     if(!res.ok) {
+      //       return res.text().then(text => { throw new Error(text) })
+      //     }
+      //     else {
+      //       return res.json();
+      //     }    
+      //   })
+      //   .catch(err=>{
+      //     console.log('caught it!',err);
+      //   });
+      try{
+        const res = await fetch('api/notes/bookmarks/', 
+          {
+            method: 'GET',
+            headers: {
+              'Content-type': 'application/json'
+            }
+          }
+        );
+        console.log(res);
+        const data = await res.json();
+        console.log(data);
+        return data;
       }
-      );
-      console.log(res);
-      const data = await res.json();
-      console.log(data);
-      return data;
+      catch(err){
+        console.log('ERR caught: ', err);
+      }
     }
   },
   computed: {
