@@ -90,6 +90,8 @@ export default{
           }
         );
         console.log(res);
+        const t = await res.text();
+        console.log(t);
         const data = await res.json();
         console.log(data);
         return data;
