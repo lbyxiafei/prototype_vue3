@@ -7,6 +7,9 @@ RUN npm install
 
 COPY . .
 
+ARG VUE_APP_API_URL
+ENV VUE_APP_API_URL $VUE_APP_API_URL
+
 RUN npm run build
 
 FROM nginx:alpine as production-build
@@ -16,6 +19,8 @@ COPY ./.nginx/nginx.conf /etc/nginx/conf.d
 
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /vue/dist /usr/share/nginx/html
+
+COPY --from=builder /vue .
 
 EXPOSE 80
 ENTRYPOINT ["nginx", "-g", "daemon off;"]

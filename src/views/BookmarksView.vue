@@ -81,7 +81,9 @@ export default{
       //     console.log('caught it!',err);
       //   });
       try{
-        const res = await fetch('api/notes/bookmarks/', 
+        const url = import.meta.env.VITE_NOTES_URL + "api/notes/bookmarks/";
+        //const res = await fetch('api/notes/bookmarks/', 
+        const res = await fetch(url, 
           {
             method: 'GET',
             headers: {
@@ -90,8 +92,8 @@ export default{
           }
         );
         console.log(res);
-        const t = await res.text();
-        console.log(t);
+        // const t = await res.text();
+        // console.log(t);
         const data = await res.json();
         console.log(data);
         return data;

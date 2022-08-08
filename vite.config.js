@@ -19,7 +19,8 @@ export default defineConfig(({ command, mode }) => {
     server: {
       proxy: {
         '/api': {
-          target: env.VITE_NOTES_URL,
+          //target: env.VITE_NOTES_URL,
+          target: "http://24.17.206.63:8000/",
           changeOrigin: true,
         }
       }
