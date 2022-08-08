@@ -37,16 +37,12 @@ npm install
 
 > Check update; apply changes to package.json and install.
 
-# Test build 
+# Serve production build 
 
 ```
 npm install -g serve
 ```
 
 ```
-serve -s dist
-```
-
-```
-serve -s build -l 4000
+serve -s dist -l 4000
 ```
