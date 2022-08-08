@@ -10,6 +10,7 @@ export default defineConfig(({ command, mode }) => {
     define: {
       __APP_ENV__: env.APP_ENV
     },
+    base: './',
     plugins: [vue()],
     resolve: {
       alias: {
@@ -19,11 +20,8 @@ export default defineConfig(({ command, mode }) => {
     server: {
       proxy: {
         '/api': {
-          //target: env.VITE_NOTES_URL,
-          target: "http://24.17.206.63:8000/",
+          target: env.VITE_NOTES_URL,
           changeOrigin: true,
-          secure: false,
-          ws: true,
         }
       }
     }

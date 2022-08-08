@@ -19,6 +19,7 @@ export default{
   name: "PostsView",
   data(){
     return {
+      baseUrl: import.meta.env.VITE_NOTES_URL,
       tag: null,
       posts: []
     }
@@ -33,7 +34,7 @@ export default{
       this.tag=tag;
     },
     async savePost(post){
-      let url='api/notes/posts/', reqMethod='POST';
+      let url=this.baseUrl + 'api/notes/posts/', reqMethod='POST';
       if(post.id){
         url+=post.id+'/';
         reqMethod='PUT';
@@ -52,7 +53,8 @@ export default{
     },
     async deletePost(post){
       if(confirm(`Sure to delete ${post.title}?`)){
-        await fetch(`api/notes/posts/${post.id}/`, {
+        const url = this.baseUrl + `api/notes/posts/${post.id}/`;
+        await fetch(url, {
           method: 'DELETE',
           headers: {
             'Content-type': 'application/json'
@@ -67,10 +69,9 @@ export default{
       }
     },
     async fetchPosts() {
-      const res = await fetch('api/notes/posts/');
-      console.log(res);
-      const data = await res.json();
-      return data;
+      const url = this.baseUrl + 'api/notes/posts/';
+      const res = await fetch(url);
+      return await res.json();
     }
   },
   async created(){

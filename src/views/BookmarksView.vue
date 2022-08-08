@@ -19,6 +19,7 @@ export default{
   name: "BookmarksView",
   data(){
     return {
+      baseUrl: import.meta.env.VITE_NOTES_URL,
       tag: null,
       bookmarks:[]
     }
@@ -33,7 +34,7 @@ export default{
       this.tag=tag;
     },
     async saveBookmark(bookmark){
-      let url='api/notes/bookmarks/', reqMethod='POST';
+      let url=this.baseUrl + 'api/notes/bookmarks/', reqMethod='POST';
       if(bookmark.id){
         url+=bookmark.id+'/';
         reqMethod='PUT';
@@ -52,7 +53,8 @@ export default{
     },
     async deleteBookmark(bookmark){
       if(confirm(`Sure to delete ${bookmark.title}?`)){
-        await fetch(`api/notes/bookmarks/${bookmark.id}/`, {
+        const url = this.baseUrl + `api/notes/bookmarks/${bookmark.id}/`;
+        await fetch(url, {
           method: 'DELETE',
           headers: {
             'Content-type': 'application/json'
@@ -67,40 +69,9 @@ export default{
       }
     },
     async fetchBookmarks() {
-      console.log(import.meta.env.VITE_NOTES_URL);
-      // fetch('api/notes/bookmarks/')
-      //   .then(res=>{
-      //     if(!res.ok) {
-      //       return res.text().then(text => { throw new Error(text) })
-      //     }
-      //     else {
-      //       return res.json();
-      //     }    
-      //   })
-      //   .catch(err=>{
-      //     console.log('caught it!',err);
-      //   });
-      try{
-        const url = import.meta.env.VITE_NOTES_URL + "api/notes/bookmarks/";
-        //const res = await fetch('api/notes/bookmarks/', 
-        const res = await fetch(url, 
-          {
-            method: 'GET',
-            headers: {
-              'Content-type': 'application/json'
-            }
-          }
-        );
-        console.log(res);
-        // const t = await res.text();
-        // console.log(t);
-        const data = await res.json();
-        console.log(data);
-        return data;
-      }
-      catch(err){
-        console.log('ERR caught: ', err);
-      }
+      const url = this.baseUrl + 'api/notes/bookmarks/';
+      const res = await fetch(url);
+      return await res.json();
     }
   },
   computed: {
