@@ -22,6 +22,8 @@ export default defineConfig(({ command, mode }) => {
           //target: env.VITE_NOTES_URL,
           target: "http://24.17.206.63:8000/",
           changeOrigin: true,
+          secure: false,
+          ws: true,
         }
       }
     }
