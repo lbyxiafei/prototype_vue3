@@ -10,7 +10,6 @@
   "dependencies": {
     "json-server": "^0.4.2",
     "pinia": "^2.0.13",
-    "svelte": "^3.49.0",
     "vue": "^3.2.33",
     "vue-router": "^4.0.14"
   },
