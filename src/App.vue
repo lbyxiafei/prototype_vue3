@@ -1,7 +1,5 @@
 <template>
-<div class="app-container">
-  <RouterView />
-</div>
+<RouterView/>
 </template>
 
 <script>
@@ -16,10 +14,4 @@ export default{
 </script>
 
 <style scoped>
-.app-container{
-  background-color: beige;
-  max-height: 98vh;
-  width: 97vw;
-  overflow: scroll;
-}
 </style>

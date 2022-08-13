@@ -1,9 +1,12 @@
 <template>
 <div class="view-container">
-  <Header />
-  <div class="view-body">
-    <h1>Home</h1>
-  </div>
+  <header>
+    <Header />
+  </header>
+  <main></main>
+  <nav></nav>
+  <aside></aside>
+  <footer></footer>
 </div>
 </template>
 
