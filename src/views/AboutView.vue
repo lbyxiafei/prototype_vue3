@@ -1,10 +1,5 @@
 <template>
-<div class="view-container">
-  <Header />
-  <div class="view-body">
-    <h1>迷えば、敗れる</h1>
-  </div>
-</div>
+<h1>迷えば、敗れる</h1>
 </template>
 
 <script>

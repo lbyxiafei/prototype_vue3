@@ -1,10 +1,5 @@
 <template>
-<div class="view-container">
-  <Header />
-  <div class="view-body">
-    <h1>Calendar</h1>
-  </div>
-</div>
+<h1>Calendar</h1>
 </template>
 
 <script>
