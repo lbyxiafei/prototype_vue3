@@ -1,6 +1,5 @@
 <template>
-<div class="container">
-  <div class="header">
+  <div class="container">
     <RouterLink to="/">Home</RouterLink> |
     <RouterLink to="/bookmarks" @click="bookmarkClicked">Bookmarks</RouterLink> |
     <RouterLink to="/posts">Posts</RouterLink> |
@@ -25,7 +24,6 @@
       @save-post="$emit('save-post', $event)" 
       @close-post="showAddTask = false" />
   </Teleport>
-</div>
 </template>
 
 <script>
@@ -69,35 +67,5 @@ export default{
 </script>
 
 <style scoped>
-.container{
-  display: block;
-}
-.header {
-  position: sticky;
-  background-color: azure;
-  width: 100%;
-  display: inline-block;
-  font-size: 1.5rem;
-  text-align: center;
-}
-.task {
-  display: block;
-}
-.fa-solid{
-  position: relative;
-  right: -20vw;
-  cursor: pointer;
-}
-.fa-plus{
-  color: purple;
-}
-.fa-plus:hover{
-  font-size: 110%;
-}
-.fa-circle-xmark{
-  color: red;
-}
-.fa-circle-xmark:hover{
-  font-size: 110%;
-}
+@import '../assets/base.css';
 </style>

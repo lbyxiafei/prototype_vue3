@@ -32,6 +32,30 @@ nav {
 header {
   grid-area: header;
 }
+header .container{
+  position: sticky;
+  width: 100%;
+  display: inline-block;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.fa-solid{
+  position: relative;
+  right: -20vw;
+  cursor: pointer;
+}
+.fa-plus{
+  color: purple;
+}
+.fa-plus:hover{
+  font-size: 110%;
+}
+.fa-circle-xmark{
+  color: red;
+}
+.fa-circle-xmark:hover{
+  font-size: 110%;
+}
 
 nav {
   grid-area: nav;
