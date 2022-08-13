@@ -29,12 +29,12 @@
 </template>
 
 <script>
-import BookmarkModal from './BookmarkModal.vue';
-import PostModal from './PostModal.vue';
+import BookmarkModal from '../components/BookmarkModal.vue';
+import PostModal from '../components/PostModal.vue';
 import { RouterLink } from 'vue-router';
 
 export default{
-  name: "Header",
+  name: "HeaderView",
   data(){
     return{
       showAddTask: false,

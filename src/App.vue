@@ -1,7 +1,7 @@
 <template>
 <div class="view-container">
   <header>
-    <Header />
+    <HeaderView />
   </header>
   <main>
     <RouterView/>
@@ -14,13 +14,13 @@
 
 <script>
 import { RouterView } from 'vue-router';
-import Header from './components/Header.vue'
+import HeaderView from './views/HeaderView.vue'
 
 export default{
   name: "App",
   components:{
     RouterView,
-    Header
+    HeaderView
   },
 }
 </script>

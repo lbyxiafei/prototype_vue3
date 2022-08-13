@@ -1,6 +1,6 @@
 <template>
   <div class="view-container">
-    <Header @save-post="savePost" />
+    <!-- <Header @save-post="savePost" /> -->
     <div class="view-body">
       <SiderLeft :tags="postTags" @click-tag="clickTag" />
       <Posts :posts="filteredPosts" 
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Header from '../components/Header.vue';
+// import Header from '../components/Header.vue';
 import Posts from '../components/Posts.vue';
 import SiderLeft from '../components/SiderLeft.vue';
 
@@ -25,7 +25,6 @@ export default{
     }
   },
   components: {
-    Header,
     SiderLeft,
     Posts
   },

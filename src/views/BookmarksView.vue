@@ -1,6 +1,6 @@
 <template>
   <div class="view-container">
-    <Header @save-bookmark="saveBookmark" />
+    <!-- <Header @save-bookmark="saveBookmark" /> -->
     <div class="view-body">
       <SiderLeft :tags="bookmarkTags" @click-tag="clickTag" />
       <Bookmarks :bookmarks="filteredBookmarks" 
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Header from '../components/Header.vue';
+// import Header from '../components/Header.vue';
 import Bookmarks from '../components/Bookmarks.vue'
 import SiderLeft from '../components/SiderLeft.vue'
 
@@ -25,7 +25,6 @@ export default{
     }
   },
   components:{
-    Header,
     SiderLeft,
     Bookmarks
   },
