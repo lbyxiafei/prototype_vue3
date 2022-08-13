@@ -2,7 +2,7 @@
 <div class="container">
   <div class="header">
     <RouterLink to="/">Home</RouterLink> |
-    <RouterLink to="/bookmarks">Bookmarks</RouterLink> |
+    <RouterLink to="/bookmarks" @click="bookmarkClicked">Bookmarks</RouterLink> |
     <RouterLink to="/posts">Posts</RouterLink> |
     <RouterLink to="/calendar">Calendar</RouterLink> |
     <RouterLink to="/about">About</RouterLink>
@@ -49,6 +49,9 @@ export default{
     toggleAddTask(){
       this.showAddTask = !this.showAddTask;
     },
+    bookmarkClicked() {
+      console.log("bookmark clicked!");
+    }
   },
   computed:{
     enableAddTask(){
