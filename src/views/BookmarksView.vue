@@ -76,17 +76,6 @@ export default{
     }
   },
   computed: {
-    bookmarkTags(){
-      let tags=[];
-      this.bookmarks.forEach(bmk => {
-        bmk.tags.forEach(tg => {
-          if(!tags.includes(tg.name)){
-            tags.push(tg.name);
-          }
-        });
-      });
-      return tags;
-    },
     filteredBookmarks(){
       return this.tag===null 
         ? this.bookmarks 

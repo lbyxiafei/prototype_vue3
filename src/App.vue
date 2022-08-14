@@ -12,7 +12,8 @@
       :tags="tags" />
   </main>
   <nav>
-    <SiderLeftView />
+    <SiderLeftView 
+      :tags="tags" />
   </nav>
   <aside>
     RightSideBar
@@ -40,10 +41,24 @@ export default{
   },
   methods: {
     selectBookmarks() {
-      console.log('select bmk');
+      this.tags = [];
+      this.bookmarks.forEach(bmk => {
+        bmk.tags.forEach(tg => {
+          if(!this.tags.includes(tg.name)){
+            this.tags.push(tg.name);
+          }
+        });
+      });
     },
     selectPosts() {
-      console.log('select pst');
+      this.tags = [];
+      this.posts.forEach(pst => {
+        pst.tags.forEach(tg => {
+          if(!this.tags.includes(tg.name)){
+            this.tags.push(tg.name);
+          }
+        });
+      });
     },
     async fetchQuery(url) {
       const res = await fetch(url);
