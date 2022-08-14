@@ -2,7 +2,7 @@
   <div class="view-container">
     <!-- <Header @save-post="savePost" /> -->
     <div class="view-body">
-      <SiderLeft :tags="postTags" @click-tag="clickTag" />
+      <!-- <SiderLeft :tags="postTags" @click-tag="clickTag" /> -->
       <Posts :posts="filteredPosts" 
         @save-post="savePost"
         @delete-post="deletePost" />
@@ -13,19 +13,20 @@
 <script>
 // import Header from '../components/Header.vue';
 import Posts from '../components/Posts.vue';
-import SiderLeft from '../components/SiderLeft.vue';
 
 export default{
   name: "PostsView",
+  props: {
+    tags: Array,
+    posts: Array,
+  },
   data(){
     return {
       baseUrl: import.meta.env.VITE_NOTES_URL,
       tag: null,
-      posts: []
     }
   },
   components: {
-    SiderLeft,
     Posts
   },
   methods:{
@@ -73,14 +74,11 @@ export default{
       return await res.json();
     }
   },
-  async created(){
-    this.posts= await this.fetchPosts();
-  },
   computed: {
     postTags(){
       let tags=[];
-      this.posts.forEach(bmk => {
-        bmk.tags.forEach(tg => {
+      this.posts.forEach(pst => {
+        pst.tags.forEach(tg => {
           if(!tags.includes(tg.name)){
             tags.push(tg.name);
           }

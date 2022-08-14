@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import SiderLeftItem from './SiderLeftItem.vue';
+import SiderLeftItem from '../components/SiderLeftItem.vue';
 
 export default{
-  name:"SiderLeft",
+  name:"SiderLeftView",
   data() {
     return {
       tagSelected: null
@@ -45,11 +45,5 @@ export default{
 @import '../assets/base.css';
 .sider{
   background-color: aqua;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  min-height: 90vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 </style>

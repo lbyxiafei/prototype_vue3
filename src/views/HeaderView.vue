@@ -1,8 +1,12 @@
 <template>
   <div class="container">
     <RouterLink to="/">Home</RouterLink> |
-    <RouterLink to="/bookmarks" @click="bookmarkClicked">Bookmarks</RouterLink> |
-    <RouterLink to="/posts">Posts</RouterLink> |
+    <RouterLink to="/bookmarks" @click="$emit('select-bookmarks')">
+      Bookmarks
+    </RouterLink> |
+    <RouterLink to="/posts" @click="$emit('select-posts')">
+      Posts
+    </RouterLink> |
     <RouterLink to="/calendar">Calendar</RouterLink> |
     <RouterLink to="/about">About</RouterLink>
     <i v-show="enableAddTask && !showAddTask" @click="toggleAddTask" class="fa-solid fa-plus"></i>
@@ -47,9 +51,6 @@ export default{
     toggleAddTask(){
       this.showAddTask = !this.showAddTask;
     },
-    bookmarkClicked() {
-      console.log("bookmark clicked!");
-    }
   },
   computed:{
     enableAddTask(){
@@ -62,7 +63,7 @@ export default{
       return this.$route.name === 'posts';
     }
   },
-  emits: ['save-bookmark', 'save-post'],
+  emits: ['select-bookmarks', 'select-posts', 'save-bookmark', 'save-post'],
 }
 </script>
 

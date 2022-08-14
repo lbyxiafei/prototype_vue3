@@ -2,7 +2,7 @@
   <div class="view-container">
     <!-- <Header @save-bookmark="saveBookmark" /> -->
     <div class="view-body">
-      <SiderLeft :tags="bookmarkTags" @click-tag="clickTag" />
+      <!-- <SiderLeft :tags="bookmarkTags" @click-tag="clickTag" /> -->
       <Bookmarks :bookmarks="filteredBookmarks" 
         @save-bookmark="saveBookmark"
         @delete-bookmark="deleteBookmark" />
@@ -13,19 +13,21 @@
 <script>
 // import Header from '../components/Header.vue';
 import Bookmarks from '../components/Bookmarks.vue'
-import SiderLeft from '../components/SiderLeft.vue'
 
 export default{
   name: "BookmarksView",
+  props: {
+    bookmarks: Array,
+    tags: Array,
+  },
   data(){
     return {
       baseUrl: import.meta.env.VITE_NOTES_URL,
       tag: null,
-      bookmarks:[]
+      // bookmarks:[]
     }
   },
   components:{
-    SiderLeft,
     Bookmarks
   },
   methods:{
@@ -91,9 +93,6 @@ export default{
         : this.bookmarks.filter(bk => bk.tags.some(t => t.name===this.tag));
     }
   },
-  async created(){
-    this.bookmarks = await this.fetchBookmarks();
-  }
 }
 </script>
 
