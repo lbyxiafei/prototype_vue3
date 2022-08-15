@@ -1,9 +1,9 @@
 <template>
-  <div class="sider">
-    <div v-for="tag in tags" :key="tag">
-      <SiderLeftItem :tag="tag" @click-tag="clickTag" />
-    </div>
+<div class="sider">
+  <div v-for="tag in tags" :key="tag">
+    <SiderLeftItem :tag="tag" @click-tag="clickTag" />
   </div>
+</div>
 </template>
 
 <script>
