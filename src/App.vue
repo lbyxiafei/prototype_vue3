@@ -1,13 +1,16 @@
 <template>
 <div class="view-container">
   <header>
-    <HeaderView />
+    <HeaderView 
+      @save-post="savePost" />
   </header>
   <main>
     <RouterView 
       :bookmarks="filteredBookmarks"
       :posts="filteredPosts"
-      :tags="computedRouterTags" />
+      :tags="computedRouterTags" 
+      @save-post="savePost" 
+      @delete-post="deletePost" />
   </main>
   <nav>
     <SiderLeftView 
@@ -62,6 +65,41 @@ export default{
     },
     async fetchPosts() {
       return await this.fetchQuery(this.baseUrl + 'api/notes/posts/');
+    },
+    async savePost(post){
+      let url=this.baseUrl + 'api/notes/posts/', reqMethod='POST';
+      if(post.id){
+        url+=post.id+'/';
+        reqMethod='PUT';
+      }
+      const res = await fetch(url, {
+        method: reqMethod,
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(post),
+      })
+      if(!post.id){
+        const data = await res.json()
+        this.posts.push(data);
+      }
+    },
+    async deletePost(post){
+      if(confirm(`Sure to delete ${post.title}?`)){
+        const url = this.baseUrl + `api/notes/posts/${post.id}/`;
+        await fetch(url, {
+          method: 'DELETE',
+          headers: {
+            'Content-type': 'application/json'
+          }
+        }).then(
+          response => {
+            if(response.status===200){
+              this.posts=this.posts.filter(e => e.id!==post.id);
+            }
+          }
+        );
+      }
     },
   },
   computed: {

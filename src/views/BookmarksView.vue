@@ -67,8 +67,8 @@ export default{
     },
   },
   computed: {
-    
   },
+  emits: ['save-bookmark', 'delete-bookmark'],
 }
 </script>
 
