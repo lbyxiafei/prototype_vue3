@@ -9,7 +9,6 @@ export default{
   name: "SiderLeftItem",
   data() {
     return {
-      tagSelected: false
     }
   },
   props:{

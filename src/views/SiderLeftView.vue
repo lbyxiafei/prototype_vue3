@@ -43,7 +43,4 @@ export default{
 
 <style scoped>
 @import '../assets/base.css';
-.sider{
-  background-color: aqua;
-}
 </style>
