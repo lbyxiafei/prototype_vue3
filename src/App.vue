@@ -36,7 +36,7 @@ export default{
       bookmarks: [],
       posts: [],
       tags: [],
-      selectedTag: "",
+      selectedTag: null,
     }
   },
   components:{
@@ -51,7 +51,6 @@ export default{
   },
   methods: {
     clickTag(tag) {
-      console.log(tag);
       this.selectedTag = tag;
     },
     async fetchQuery(url) {
@@ -67,7 +66,6 @@ export default{
   },
   computed: {
     filteredBookmarks() {
-      console.log(this.bookmarks + '?');
       return this.selectedTag===null 
         ? this.bookmarks 
         : this.bookmarks.filter(bk => bk.tags.some(t => t.name===this.selectedTag));
