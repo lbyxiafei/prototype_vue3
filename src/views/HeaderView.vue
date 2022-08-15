@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <RouterLink to="/">Home</RouterLink> |
-    <RouterLink to="/bookmarks" @click="$emit('select-bookmarks')">
+    <RouterLink to="/bookmarks" >
       Bookmarks
     </RouterLink> |
-    <RouterLink to="/posts" @click="$emit('select-posts')">
+    <RouterLink to="/posts" >
       Posts
     </RouterLink> |
     <RouterLink to="/calendar">Calendar</RouterLink> |
@@ -63,7 +63,7 @@ export default{
       return this.$route.name === 'posts';
     }
   },
-  emits: ['select-bookmarks', 'select-posts', 'save-bookmark', 'save-post'],
+  emits: ['save-bookmark', 'save-post'],
 }
 </script>
 

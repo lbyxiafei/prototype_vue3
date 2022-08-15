@@ -1,9 +1,7 @@
 <template>
   <div class="view-container">
-    <!-- <Header @save-bookmark="saveBookmark" /> -->
     <div class="view-body">
-      <!-- <SiderLeft :tags="bookmarkTags" @click-tag="clickTag" /> -->
-      <Bookmarks :bookmarks="filteredBookmarks" 
+      <Bookmarks :bookmarks="bookmarks" 
         @save-bookmark="saveBookmark"
         @delete-bookmark="deleteBookmark" />
     </div>
@@ -11,7 +9,6 @@
 </template>
 
 <script>
-// import Header from '../components/Header.vue';
 import Bookmarks from '../components/Bookmarks.vue'
 
 export default{
@@ -24,7 +21,6 @@ export default{
     return {
       baseUrl: import.meta.env.VITE_NOTES_URL,
       tag: null,
-      // bookmarks:[]
     }
   },
   components:{
@@ -69,18 +65,9 @@ export default{
         );
       }
     },
-    async fetchBookmarks() {
-      const url = this.baseUrl + 'api/notes/bookmarks/';
-      const res = await fetch(url);
-      return await res.json();
-    }
   },
   computed: {
-    filteredBookmarks(){
-      return this.tag===null 
-        ? this.bookmarks 
-        : this.bookmarks.filter(bk => bk.tags.some(t => t.name===this.tag));
-    }
+    
   },
 }
 </script>

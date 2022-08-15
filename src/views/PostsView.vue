@@ -68,11 +68,6 @@ export default{
         );
       }
     },
-    async fetchPosts() {
-      const url = this.baseUrl + 'api/notes/posts/';
-      const res = await fetch(url);
-      return await res.json();
-    }
   },
   computed: {
     postTags(){

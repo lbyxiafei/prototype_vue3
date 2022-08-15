@@ -1,19 +1,18 @@
 <template>
 <div class="view-container">
   <header>
-    <HeaderView 
-      @select-bookmarks="selectBookmarks"
-      @select-posts="selectPosts" />
+    <HeaderView />
   </header>
   <main>
     <RouterView 
       :bookmarks="filteredBookmarks"
       :posts="filteredPosts"
-      :tags="filteredTags" />
+      :tags="computedRouterTags" />
   </main>
   <nav>
     <SiderLeftView 
-      :tags="filteredTags" />
+      :tags="computedRouterTags"
+      @click-tag="clickTag" />
   </nav>
   <aside>
     RightSideBar
@@ -40,9 +39,20 @@ export default{
       selectedTag: "",
     }
   },
+  components:{
+    RouterView,
+    HeaderView,
+    SiderLeftView,
+    SiderLeftView
+  },
+  async created(){
+    this.bookmarks = await this.fetchBookmarks();
+    this.posts= await this.fetchPosts();
+  },
   methods: {
-    selectTag(tag) {
-      this.tags = [];
+    clickTag(tag) {
+      console.log(tag);
+      this.selectedTag = tag;
     },
     async fetchQuery(url) {
       const res = await fetch(url);
@@ -57,12 +67,17 @@ export default{
   },
   computed: {
     filteredBookmarks() {
-
+      console.log(this.bookmarks + '?');
+      return this.selectedTag===null 
+        ? this.bookmarks 
+        : this.bookmarks.filter(bk => bk.tags.some(t => t.name===this.selectedTag));
     },
     filteredPosts() {
-
+      return this.selectedTag===null 
+        ? this.posts
+        : this.posts.filter(p => p.tags.some(t => t.name===this.selectedTag));
     },
-    filteredTags() {
+    computedRouterTags() {
       let tags=[];
       if(this.$route.name==='bookmarks') {
         this.bookmarks.forEach(bmk => {
@@ -85,16 +100,6 @@ export default{
       return tags;
     },
   },
-  components:{
-    RouterView,
-    HeaderView,
-    SiderLeftView,
-    SiderLeftView
-  },
-  async created(){
-    this.bookmarks = await this.fetchBookmarks();
-    this.posts= await this.fetchPosts();
-  }
 }
 </script>
 
