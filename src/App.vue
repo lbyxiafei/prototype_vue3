@@ -2,6 +2,7 @@
 <div class="view-container">
   <header>
     <HeaderView 
+      @save-bookmark="saveBookmark"
       @save-post="savePost" />
   </header>
   <main>
@@ -9,6 +10,8 @@
       :bookmarks="filteredBookmarks"
       :posts="filteredPosts"
       :tags="computedRouterTags" 
+      @save-bookmark="saveBookmark"
+      @delete-bookmark="deleteBookmark"
       @save-post="savePost" 
       @delete-post="deletePost" />
   </main>
@@ -62,6 +65,41 @@ export default{
     },
     async fetchBookmarks() {
       return await this.fetchQuery(this.baseUrl + 'api/notes/bookmarks/');
+    },
+    async saveBookmark(bookmark){
+      let url=this.baseUrl + 'api/notes/bookmarks/', reqMethod='POST';
+      if(bookmark.id){
+        url+=bookmark.id+'/';
+        reqMethod='PUT';
+      }
+      const res = await fetch(url, {
+        method: reqMethod,
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(bookmark),
+      });
+      if(!bookmark.id){
+        const data = await res.json()
+        this.bookmarks.push(data);
+      }
+    },
+    async deleteBookmark(bookmark){
+      if(confirm(`Sure to delete ${bookmark.title}?`)){
+        const url = this.baseUrl + `api/notes/bookmarks/${bookmark.id}/`;
+        await fetch(url, {
+          method: 'DELETE',
+          headers: {
+            'Content-type': 'application/json'
+          }
+        }).then(
+          response => {
+            if(response.status===200){
+              this.bookmarks=this.bookmarks.filter(e => e.id!==bookmark.id);
+            }
+          }
+        );
+      }
     },
     async fetchPosts() {
       return await this.fetchQuery(this.baseUrl + 'api/notes/posts/');

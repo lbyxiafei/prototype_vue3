@@ -1,11 +1,9 @@
 <template>
-  <div class="view-container">
-    <div class="view-body">
-      <Posts :posts="posts" 
-        @save-post="$emit('save-post', $event)"
-        @delete-post="$emit('delete-post', $event)" />
-    </div>
-  </div>
+<div class="view-body">
+  <Posts :posts="posts" 
+    @save-post="$emit('save-post', $event)"
+    @delete-post="$emit('delete-post', $event)" />
+</div>
 </template>
 
 <script>
