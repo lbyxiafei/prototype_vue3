@@ -7,13 +7,13 @@
   </header>
   <main>
     <RouterView 
-      :bookmarks="bookmarks"
-      :posts="posts"
-      :tags="tags" />
+      :bookmarks="filteredBookmarks"
+      :posts="filteredPosts"
+      :tags="filteredTags" />
   </main>
   <nav>
     <SiderLeftView 
-      :tags="tags" />
+      :tags="filteredTags" />
   </nav>
   <aside>
     RightSideBar
@@ -37,28 +37,12 @@ export default{
       bookmarks: [],
       posts: [],
       tags: [],
+      selectedTag: "",
     }
   },
   methods: {
-    selectBookmarks() {
+    selectTag(tag) {
       this.tags = [];
-      this.bookmarks.forEach(bmk => {
-        bmk.tags.forEach(tg => {
-          if(!this.tags.includes(tg.name)){
-            this.tags.push(tg.name);
-          }
-        });
-      });
-    },
-    selectPosts() {
-      this.tags = [];
-      this.posts.forEach(pst => {
-        pst.tags.forEach(tg => {
-          if(!this.tags.includes(tg.name)){
-            this.tags.push(tg.name);
-          }
-        });
-      });
     },
     async fetchQuery(url) {
       const res = await fetch(url);
@@ -69,6 +53,36 @@ export default{
     },
     async fetchPosts() {
       return await this.fetchQuery(this.baseUrl + 'api/notes/posts/');
+    },
+  },
+  computed: {
+    filteredBookmarks() {
+
+    },
+    filteredPosts() {
+
+    },
+    filteredTags() {
+      let tags=[];
+      if(this.$route.name==='bookmarks') {
+        this.bookmarks.forEach(bmk => {
+          bmk.tags.forEach(tg => {
+            if(!tags.includes(tg.name)){
+              tags.push(tg.name);
+            }
+          });
+        });
+      }
+      else if(this.$route.name==='posts') {
+        this.posts.forEach(pst => {
+          pst.tags.forEach(tg => {
+            if(!tags.includes(tg.name)){
+              tags.push(tg.name);
+            }
+          });
+        });
+      }
+      return tags;
     },
   },
   components:{
