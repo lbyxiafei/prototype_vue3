@@ -13,7 +13,7 @@
             </div>
             <div class="post-tags">
               <template v-for="tg in post.tags" :key="tg.name">
-                {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)">x</button>
+                {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)"></button>
               </template>
               <br/>
               <input v-model="newTag"/><button class="btn btn-add" @click="addTag(newTag)">+</button>

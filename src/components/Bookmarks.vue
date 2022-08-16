@@ -1,11 +1,15 @@
 <template>
-<div class="container">
-  <div class="bookmark" v-for="bookmark in bookmarks" :key="bookmark.id">
-    <Bookmark :bookmark="bookmark" 
-      @save-bookmark="$emit('save-bookmark', $event)"
-      @delete-bookmark="$emit('delete-bookmark', $event)" />
+<section class="p-5">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-md" v-for="bookmark in bookmarks" :key="bookmark.id">
+        <Bookmark :bookmark="bookmark" 
+          @save-bookmark="$emit('save-bookmark', $event)"
+          @delete-bookmark="$emit('delete-bookmark', $event)" />
+      </div>
+    </div>
   </div>
-</div>
+</section>
 </template>
 
 <script>
@@ -25,16 +29,4 @@ export default{
 
 <style scoped>
 @import '../assets/base.css';
-.container{
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  grid-gap: 5px;
-  height: 100%;
-  width: 100%;
-}
-.bookmark{
-  display: block;
-  height: 100%;
-  width: 100%;
-}
 </style>

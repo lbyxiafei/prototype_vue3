@@ -1,9 +1,15 @@
 <template>
-  <div class="container">
-    <h3><a :href="bookmark.url" target="_blank">{{bookmark.title}}</a></h3>
-    <i class="fa-regular fa-pen-to-square" @click="showBookmarkModal = true" />
-    <i class="fa-regular fa-trash-can" @click="$emit('delete-bookmark', bookmark)" />
+  <div class="container bg-light">
+    <div class="card bg-light text-secondary">
+      <div class="h3 card-title mb-3"><a :href="bookmark.url" target="_blank">{{bookmark.title}}</a></div>
+      <div class="card-text"><a :href="bookmark.url" target="_blank">{{bookmark.title}}</a></div>
+      <div class="container">
+        <i class="fa-regular fa-pen-to-square text-dark" @click="showBookmarkModal = true" />
+        <i class="fa-regular fa-trash-can text-dark" @click="$emit('delete-bookmark', bookmark)" />
+      </div>
+    </div>
   </div>
+
   <Teleport to="body">
     <BookmarkModal 
       :show="showBookmarkModal" 
@@ -37,11 +43,6 @@ export default{
 
 <style scoped>
 @import '../assets/base.css';
-.container{
-  display: block;
-  text-align: center;
-  background-color: yellowgreen;
-}
 .fa-regular{
   color: white;
   cursor: pointer;
