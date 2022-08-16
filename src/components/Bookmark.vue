@@ -1,6 +1,6 @@
 <template>
-  <div class="container bg-light">
-    <div class="card bg-light text-secondary">
+  <div class="container">
+    <div class="card border-primary bg-light text-secondary m-1">
       <div class="h1 mb-3 text-dark">
         <i class="bi" :class="[tagIcon]"></i>
       </div>
