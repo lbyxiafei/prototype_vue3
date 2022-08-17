@@ -1,5 +1,7 @@
 <template>
-<div class="container noselect" @dblclick="showPostModal=true" @click.middle="$emit('delete-post', post)">
+<div class="container noselect" 
+    @dblclick="showPostModal=true" 
+    @click.middle="$emit('delete-post', post)">
   <div class="card boarder-secondary m-1 h-100">
     <div class="card-body">
       <h5 class="card-title text-dark">{{post.title}}</h5>

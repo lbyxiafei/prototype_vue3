@@ -1,13 +1,15 @@
 <template>
-<div class="container" @dblclick="showBookmarkModal = true" @click.middle="$emit('delete-bookmark', bookmark)">
+<div class="container noselect" 
+    @dblclick="showBookmarkModal = true" 
+    @click.middle="$emit('delete-bookmark', bookmark)">
   <div class="card border-primary bg-light text-secondary m-1">
-    <div class="h1 mb-3 text-dark">
-      <i class="bi" 
+    <div class="h1 mb-3">
+      <i class="bi text-primary" 
+        :class="[tagIcon]"
         style="cursor:pointer;" 
-        @click="openUrl" 
-        :class="[tagIcon]"></i>
+        @click="openUrl" />
     </div>
-    <div class="card-text"><a :href="bookmark.url" target="_blank">{{bookmark.title}}</a></div>
+    <div class="card-text text-dark">{{bookmark.title}}</div>
   </div>
 </div>
 
@@ -19,7 +21,6 @@
     @close-bookmark="showBookmarkModal = false" />
 </Teleport>
 </template>
-
 <script>
 import BookmarkModal from './BookmarkModal.vue'
 

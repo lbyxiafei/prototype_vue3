@@ -1,32 +1,32 @@
 <template>
-  <Transition @keydown.esc="handleEsc" @dblclick="handleEsc" tabindex="1">
-    <div v-if="show" class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-body">
-            <div class="post-title">
-              <label>Title:</label>
-              <input v-model="post.title" />
-            </div>
-            <div class="post-content-container">
-              <textarea class="post-content" v-model="post.content" />
-            </div>
-            <div class="post-tags">
-              <template v-for="tg in post.tags" :key="tg.name">
-                {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)"></button>
-              </template>
-              <br/>
-              <input v-model="newTag"/><button class="btn btn-add" @click="addTag(newTag)">+</button>
-            </div>
+<Transition class="noselect" @keydown.esc="handleEsc" @dblclick="handleEsc" tabindex="1">
+  <div v-if="show" class="modal-mask">
+    <div class="modal-wrapper">
+      <div class="modal-container">
+        <div class="modal-body">
+          <div class="post-title">
+            <label>Title:</label>
+            <input v-model="post.title" />
           </div>
-          <div class="modal-footer">
-            <button class="modal-default-button" @click="savePost">Submit</button>
-            <button class="modal-default-button" @click="$emit('close-post')">Cancel</button>
+          <div class="post-content-container">
+            <textarea class="post-content" v-model="post.content" />
           </div>
+          <div class="post-tags">
+            <template v-for="tg in post.tags" :key="tg.name">
+              {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)"></button>
+            </template>
+            <br/>
+            <input v-model="newTag"/><button class="btn btn-add" @click="addTag(newTag)">+</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-default-button" @click="savePost">Submit</button>
+          <button class="modal-default-button" @click="$emit('close-post')">Cancel</button>
         </div>
       </div>
     </div>
-  </Transition>
+  </div>
+</Transition>
 </template>
 
 <script>

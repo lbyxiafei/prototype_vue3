@@ -1,33 +1,33 @@
 <template>
-  <Transition @keydown.esc="handleEsc" @dblclick="handleEsc" tabindex="1">
-    <div v-if="show" class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-body">
-            <div>
-              <label>Name:</label>
-              <input v-model="bookmark.title" />
-            </div>
-            <div>
-              <label>Url:</label>
-              <input v-model="bookmark.url" />
-            </div>
-            <div>
-              <template v-for="tg in bookmark.tags" :key="tg.name">
-                {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)"></button>
-              </template>
-              <br/>
-              <input v-model="newTag"/><button class="btn btn-add" @click="addTag(newTag)">+</button>
-            </div>
+<Transition class="noselect" @keydown.esc="handleEsc" @dblclick="handleEsc" tabindex="1">
+  <div v-if="show" class="modal-mask">
+    <div class="modal-wrapper">
+      <div class="modal-container">
+        <div class="modal-body">
+          <div>
+            <label>Name:</label>
+            <input v-model="bookmark.title" />
           </div>
-          <div class="modal-footer">
-            <button class="modal-default-button" @click="saveBookmark">Submit</button>
-            <button class="modal-default-button" @click="$emit('close-bookmark')">Cancel</button>
+          <div>
+            <label>Url:</label>
+            <input v-model="bookmark.url" />
           </div>
+          <div>
+            <template v-for="tg in bookmark.tags" :key="tg.name">
+              {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)"></button>
+            </template>
+            <br/>
+            <input v-model="newTag"/><button class="btn btn-add" @click="addTag(newTag)">+</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-default-button" @click="saveBookmark">Submit</button>
+          <button class="modal-default-button" @click="$emit('close-bookmark')">Cancel</button>
         </div>
       </div>
     </div>
-  </Transition>
+  </div>
+</Transition>
 </template>
 
 <script>
