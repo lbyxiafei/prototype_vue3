@@ -1,9 +1,11 @@
 <template>
-<div class="sider">
-  <div v-for="tag in tags" :key="tag">
-    <SiderLeftItem :tag="tag" @click-tag="clickTag" />
+<section class="noselect">
+  <div class="sider">
+    <div v-for="tag in tags" :key="tag">
+      <SiderLeftItem :tag="tag" @click-tag="clickTag" />
+    </div>
   </div>
-</div>
+</section>
 </template>
 
 <script>

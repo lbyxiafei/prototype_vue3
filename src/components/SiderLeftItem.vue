@@ -1,6 +1,9 @@
 <template>
-  <div class="container" :id="'sider_'+tag" @click="$emit('click-tag',tag)">
-    <h3>{{tag}}</h3>
+  <div class="item-container" :id="'sider_'+tag" @click="$emit('click-tag',tag)">
+    <div class="container">
+      <i class="bi bi-laptop"></i>
+      <h2 class="text-dark">{{tag}}</h2>
+    </div>
   </div>
 </template>
 
@@ -21,13 +24,13 @@ export default{
 
 <style scoped>
 @import '../assets/base.css';
-.container{
+.item-container{
   cursor: pointer;
 }
-.container:hover{
+.item-container:hover{
   font-size: 110%;
 }
-.container:active{
+.item-container:active{
   background-color: red;
 }
 </style>
