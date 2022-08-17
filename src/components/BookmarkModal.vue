@@ -1,5 +1,5 @@
 <template>
-  <Transition @keydown.esc="handleKeyEsc" tabindex="1">
+  <Transition @keydown.esc="handleEsc" @dblclick="handleEsc" tabindex="1">
     <div v-if="show" class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
@@ -43,7 +43,7 @@ export default {
     }
   },
   methods:{
-    handleKeyEsc(){
+    handleEsc(){
       this.$emit('close-bookmark');
     },
     saveBookmark(){
