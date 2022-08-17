@@ -1,16 +1,20 @@
 <template>
-  <div class="container">
-    <h3>{{post.title}}</h3>
-    <i class="fa-regular fa-pen-to-square" @click="showPostModal= true" />
-    <i class="fa-regular fa-trash-can" @click="$emit('delete-post', post)" />
+<div class="container noselect" @dblclick="showPostModal=true" @click.middle="$emit('delete-post', post)">
+  <div class="card boarder-secondary m-1 h-100">
+    <div class="card-body">
+      <h5 class="card-title text-dark">{{post.title}}</h5>
+      <p class="card-text text-secondary text-truncate">{{post.content}}</p>
+    </div>
   </div>
-  <Teleport to="body">
-    <PostModal
-      :show="showPostModal" 
-      :post="post" 
-      @save-post="$emit('save-post', $event)" 
-      @close-post="showPostModal = false" />
-  </Teleport>
+</div>
+
+<Teleport to="body">
+  <PostModal
+    :show="showPostModal" 
+    :post="post" 
+    @save-post="$emit('save-post', $event)" 
+    @close-post="showPostModal = false" />
+</Teleport>
 </template>
 
 <script>
@@ -35,16 +39,4 @@ export default{
 
 <style scoped>
 @import '../assets/base.css';
-.container{
-  display: block;
-  text-align: center;
-  background-color: yellowgreen;
-}
-.fa-regular{
-  color: white;
-  cursor: pointer;
-}
-.fa-regular:hover{
-  font-size: 110%;
-}
 </style>

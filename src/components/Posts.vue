@@ -1,11 +1,15 @@
 <template>
-<div class="container">
-  <div class="post" v-for="post in posts" :key="post.id">
-    <Post :post="post" 
-      @save-post="$emit('save-post', $event)"
-      @delete-post="$emit('delete-post', $event)" />
+<section class="p-2">
+  <div class="container">
+    <div class="row text-center g-4 card-group-margin-5">
+      <div class="col-4" v-for="post in posts" :key="post.id">
+        <Post :post="post" 
+          @save-post="$emit('save-post', $event)"
+          @delete-post="$emit('delete-post', $event)" />
+      </div>
+    </div>
   </div>
-</div>
+</section>
 </template>
 
 <script>
@@ -25,16 +29,4 @@ export default{
 
 <style scoped>
 @import '../assets/base.css';
-.container{
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  grid-gap: 5px;
-  height: 100%;
-  width: 100%;
-}
-.post{
-  display: block;
-  height: 100%;
-  width: 100%;
-}
 </style>

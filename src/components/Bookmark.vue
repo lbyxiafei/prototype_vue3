@@ -1,24 +1,23 @@
 <template>
-  <div class="container">
-    <div class="card border-primary bg-light text-secondary m-1">
-      <div class="h1 mb-3 text-dark">
-        <i class="bi" :class="[tagIcon]"></i>
-      </div>
-      <div class="card-text"><a :href="bookmark.url" target="_blank">{{bookmark.title}}</a></div>
-      <div class="container">
-        <i class="fa-regular fa-pen-to-square text-success" @click="showBookmarkModal = true" />
-        <i class="fa-regular fa-trash-can text-secondary" @click="$emit('delete-bookmark', bookmark)" />
-      </div>
+<div class="container" @dblclick="showBookmarkModal = true" @click.middle="$emit('delete-bookmark', bookmark)">
+  <div class="card border-primary bg-light text-secondary m-1">
+    <div class="h1 mb-3 text-dark">
+      <i class="bi" 
+        style="cursor:pointer;" 
+        @click="openUrl" 
+        :class="[tagIcon]"></i>
     </div>
+    <div class="card-text"><a :href="bookmark.url" target="_blank">{{bookmark.title}}</a></div>
   </div>
+</div>
 
-  <Teleport to="body">
-    <BookmarkModal 
-      :show="showBookmarkModal" 
-      :bookmark="bookmark" 
-      @save-bookmark="$emit('save-bookmark', $event)" 
-      @close-bookmark="showBookmarkModal = false" />
-  </Teleport>
+<Teleport to="body">
+  <BookmarkModal 
+    :show="showBookmarkModal" 
+    :bookmark="bookmark" 
+    @save-bookmark="$emit('save-bookmark', $event)" 
+    @close-bookmark="showBookmarkModal = false" />
+</Teleport>
 </template>
 
 <script>
@@ -39,6 +38,9 @@ export default{
     BookmarkModal
   },
   methods: {
+    openUrl() {
+      window.open(this.bookmark.url, '_newtab');
+    },
     getTagIcon(){
       const tags = new Set();
       this.bookmark.tags.forEach(tag => {
@@ -46,11 +48,11 @@ export default{
       });
       if(tags.has("watch")) return "bi-eye";
       if(tags.has("todo")) return "bi-list-check";
+      if(tags.has("training")) return "bi-battery-charging";
       if(tags.has("algo")) return "bi-lightning";
       if(tags.has("cheatsheet")) return "bi-lightbulb";
       if(tags.has("communication")) return "bi-wechat";
       if(tags.has("jobs")) return "bi-linkedin";
-      if(tags.has("training")) return "bi-battery-charging";
       if(tags.has("debug")) return "bi-bug";
       if(tags.has("cpp")) return "bi-code";
       return "bi-info-circle";
@@ -62,11 +64,4 @@ export default{
 
 <style scoped>
 @import '../assets/base.css';
-.fa-regular{
-  color: white;
-  cursor: pointer;
-}
-.fa-regular:hover{
-  font-size: 110%;
-}
 </style>

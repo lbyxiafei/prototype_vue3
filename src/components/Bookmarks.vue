@@ -1,5 +1,5 @@
 <template>
-<section class="p-5">
+<section class="p-2">
   <div class="container">
     <div class="row text-center g-4 card-group-margin-5">
       <div class="col-3" v-for="bookmark in bookmarks" :key="bookmark.id">
