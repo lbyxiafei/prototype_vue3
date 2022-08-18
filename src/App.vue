@@ -1,6 +1,6 @@
 <template>
 <div class="view-container">
-  <header>
+  <header class="noselect">
     <HeaderView 
       @save-bookmark="saveBookmark"
       @save-post="savePost" />
@@ -20,10 +20,10 @@
       :tags="computedRouterTags"
       @click-tag="clickTag" />
   </nav>
-  <aside>
+  <aside class="noselect">
     Recent
   </aside>
-  <footer class="text-white text-center position-relative">
+  <footer class="text-white text-center position-relative noselect">
     <div class="container">
       <p class="lead">Copyright &copy; 2022 Binyan Li</p>
       <!-- <a href="#" class="position-absolute bottom-0 end-0 p-5">
