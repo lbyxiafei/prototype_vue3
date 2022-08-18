@@ -34,24 +34,6 @@ header {
   font-size: 1.5rem;
 }
 
-.fa-solid{
-  /* position: relative;
-  right: -50vw; */
-  cursor: pointer;
-}
-.fa-plus{
-  color: purple;
-}
-.fa-plus:hover{
-  font-size: 110%;
-}
-.fa-circle-xmark{
-  color: red;
-}
-.fa-circle-xmark:hover{
-  font-size: 110%;
-}
-
 nav {
   grid-area: nav;
 }
