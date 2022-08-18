@@ -15,14 +15,14 @@
     <i v-show="enableAddTask && !showAddTask" @click="toggleAddTask" class="fa-solid fa-plus"></i>
     <i v-show="enableAddTask && showAddTask" @click="toggleAddTask" class="fa-solid fa-circle-xmark"></i>
 
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-      <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-    </form>
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+      </form>
 
-    <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-primary me-2">Login</button>
-      <button type="button" class="btn btn-primary me-2">Sign-up</button>
-    </div>
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        <button type="button" class="btn btn-primary me-2">Sign-up</button>
+      </div>
   </div>
 
   <Teleport to="body">
