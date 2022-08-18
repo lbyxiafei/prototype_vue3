@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4" @dblclick="toggleAddTask">
+  <div class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4" @dblclick.self="toggleAddTask">
     <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
       <RouterLink class="nav-link px-2 link-dark text-primary" to="/">Home</RouterLink>
       <RouterLink class="nav-link px-2 link-dark" to="/bookmarks">Bookmarks</RouterLink>
@@ -9,7 +9,7 @@
     </div>
 
     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-      <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+      <input type="search" class="form-control form-control-dark" placeholder="Search...">
     </form>
 
     <div class="col-md-3 text-end">

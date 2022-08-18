@@ -1,7 +1,7 @@
 <template>
-<Transition class="noselect" @keydown.esc="handleEsc" @dblclick="handleEsc" tabindex="1">
+<Transition class="noselect" @keydown.esc="handleEsc" tabindex="1">
   <div v-if="show" class="modal-mask">
-    <div class="modal-wrapper">
+    <div class="modal-wrapper" @dblclick.self="handleEsc">
       <div class="modal-container">
         <div class="modal-body">
           <div class="post-title">
@@ -16,7 +16,8 @@
               {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)"></button>
             </template>
             <br/>
-            <input v-model="newTag"/><button class="btn btn-add" @click="addTag(newTag)">+</button>
+            <input v-model="newTag"/>
+            <button class="btn btn-add" @click="addTag(newTag)">+</button>
           </div>
         </div>
         <div class="modal-footer">
@@ -44,10 +45,12 @@ export default {
   methods:{
     handleEsc(){
       this.$emit('close-post');
+      this.newTag="";
     },
     savePost(){
       this.$emit('save-post', this.post);
       this.$emit('close-post');
+      this.newTag="";
     },
     removeTag(tagName){
       this.post.tags = this.post.tags.filter(tg => tg.name !== tagName);
