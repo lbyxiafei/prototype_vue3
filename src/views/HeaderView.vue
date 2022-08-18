@@ -1,16 +1,28 @@
 <template>
-  <div class="container">
-    <RouterLink to="/">Home</RouterLink> |
-    <RouterLink to="/bookmarks" >
-      Bookmarks
-    </RouterLink> |
-    <RouterLink to="/posts" >
-      Posts
-    </RouterLink> |
-    <RouterLink to="/calendar">Calendar</RouterLink> |
-    <RouterLink to="/about">About</RouterLink>
+  <div class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4">
+    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">?
+      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+    </a>
+
+    <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+      <RouterLink class="nav-link px-2 link-dark text-primary" to="/">Home</RouterLink>
+      <RouterLink class="nav-link px-2 link-dark" to="/bookmarks">Bookmarks</RouterLink>
+      <RouterLink class="nav-link px-2 link-dark" to="/posts">Posts</RouterLink>
+      <RouterLink class="nav-link px-2 link-dark" to="/calendar">Calendar</RouterLink>
+      <RouterLink class="nav-link px-2 link-dark" to="/about">About</RouterLink>
+    </div>
+
     <i v-show="enableAddTask && !showAddTask" @click="toggleAddTask" class="fa-solid fa-plus"></i>
     <i v-show="enableAddTask && showAddTask" @click="toggleAddTask" class="fa-solid fa-circle-xmark"></i>
+
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+      <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+    </form>
+
+    <div class="col-md-3 text-end">
+      <button type="button" class="btn btn-outline-primary me-2">Login</button>
+      <button type="button" class="btn btn-primary me-2">Sign-up</button>
+    </div>
   </div>
 
   <Teleport to="body">
