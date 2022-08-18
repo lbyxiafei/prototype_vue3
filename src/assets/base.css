@@ -35,8 +35,8 @@ header {
 }
 
 .fa-solid{
-  position: relative;
-  right: -50vw;
+  /* position: relative;
+  right: -50vw; */
   cursor: pointer;
 }
 .fa-plus{

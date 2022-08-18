@@ -1,8 +1,10 @@
 <template>
   <div class="item-container" :id="'sider_'+tag" @click="$emit('click-tag',tag)">
-    <div class="container">
+    <div class="item">
       <i class="bi bi-laptop"></i>
-      <h2 class="text-dark">{{tag}}</h2>
+      <div class="container">
+        <h3 class="text-dark">{{tag}}</h3>
+      </div>
     </div>
   </div>
 </template>
@@ -33,5 +35,16 @@ export default{
 .item-container:active{
   background-color: red;
 }
-</style>
 
+.item{
+  display: flex;
+  justify-content: space-between;
+}
+.item h3{
+  text-align: center;
+}
+.item i {
+  color: gray;
+  font-size: 1.5em;
+}
+</style>
