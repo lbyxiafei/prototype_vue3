@@ -1,11 +1,11 @@
 <template>
-<div class="container noselect" 
+<div class="container noselect m-1" 
     @dblclick="showPostModal=true" 
     @click.middle="$emit('delete-post', post)">
-  <div class="card boarder-secondary m-1 h-100">
+  <div class="card boarder-secondary h-100">
     <div class="card-body">
       <h5 class="card-title text-dark">{{post.title}}</h5>
-      <p class="card-text text-secondary text-truncate">{{post.content}}</p>
+      <p class="card-text text-secondary ellipsis">{{post.content}}</p>
     </div>
   </div>
 </div>

@@ -2,7 +2,7 @@
 <section class="p-2">
   <div class="container">
     <div class="row text-center g-4 card-group-margin-5">
-      <div class="col-4" v-for="post in posts" :key="post.id">
+      <div class="col-md-3 d-flex align-items-stretch" v-for="post in posts" :key="post.id">
         <Post :post="post" 
           @save-post="$emit('save-post', $event)"
           @delete-post="$emit('delete-post', $event)" />
