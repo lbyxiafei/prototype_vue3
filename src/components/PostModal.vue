@@ -67,29 +67,16 @@ export default {
 </script>
 
 <style scoped>
-/* .btn-close {
+.btn-close {
   background-color: red;
   margin-right: 1px;
 }
 .btn-add {
   background-color: green;
 }
-.post-title{
-  text-align: center;
-}
-.post-tags{
-  text-align: center;
-}
-.post-content-container{
-  height: 40vh;
-  text-align: center;
-}
-.post-content{
-  height: 100%;
-  width: 100%;
-}
 .modal-mask {
   position: fixed;
+  overflow-y: auto;
   z-index: 9998;
   top: 0;
   left: 0;
@@ -102,11 +89,13 @@ export default {
 
 .modal-wrapper {
   display: table-cell;
+  overflow-y: auto;
   vertical-align: middle;
 }
 
 .modal-container {
-  height: 50%;
+  max-height: 50vh; 
+  overflow-y: auto;
   width: 50%;
   margin: 0px auto;
   padding: 20px 30px;
@@ -124,6 +113,7 @@ export default {
 .modal-body {
   margin: 20px 0;
   height: 100%;
+  overflow-y: auto;
 }
 
 .modal-default-button {
@@ -142,5 +132,5 @@ export default {
 .modal-leave-to .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-} */
+}
 </style>
