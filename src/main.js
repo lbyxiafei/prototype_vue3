@@ -1,17 +1,20 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
-import App from './App.vue'
-import router from './router'
+import App from './App.vue';
+import router from './router';
 
-import { QuillEditor } from '@vueup/vue-quill'
+import { QuillEditor } from '@vueup/vue-quill';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
-const app = createApp(App)
+import Markdown from 'vue3-markdown-it';
 
-app.component('QuillEditor', QuillEditor)
+const app = createApp(App);
 
-app.use(createPinia())
-app.use(router)
+app.component('QuillEditor', QuillEditor);
+app.component('Markdown', Markdown);
 
-app.mount('#app')
+app.use(createPinia());
+app.use(router);
+
+app.mount('#app');

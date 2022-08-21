@@ -1,6 +1,6 @@
 <template>
 <Transition class="noselect" @keydown.esc="handleEsc" tabindex="1">
-  <div v-if="show" class="modal-mask">
+  <div class="modal-mask" v-if="show">
     <div class="modal-wrapper" @dblclick.self="handleEsc">
       <div class="modal-container">
         <div class="modal-body">
@@ -10,6 +10,7 @@
           </div>
           <div class="post-content-container">
             <QuillEditor theme="snow" v-model:content="post.content" contentType="text" />
+            <Markdown :source="post.content" />
           </div>
           <div class="post-tags">
             <template v-for="tg in post.tags" :key="tg.name">
@@ -66,7 +67,7 @@ export default {
 </script>
 
 <style scoped>
-.btn-close {
+/* .btn-close {
   background-color: red;
   margin-right: 1px;
 }
@@ -129,15 +130,6 @@ export default {
   float: right;
 }
 
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
-
 .modal-enter-from {
   opacity: 0;
 }
@@ -150,5 +142,5 @@ export default {
 .modal-leave-to .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-}
+} */
 </style>
