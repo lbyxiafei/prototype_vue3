@@ -9,7 +9,7 @@
             <input v-model="post.title" />
           </div>
           <div class="post-content-container">
-            <textarea class="post-content" v-model="post.content" />
+            <QuillEditor theme="snow" v-model:content="post.content" contentType="text" />
           </div>
           <div class="post-tags">
             <template v-for="tg in post.tags" :key="tg.name">
