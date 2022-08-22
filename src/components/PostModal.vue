@@ -11,12 +11,12 @@
             <QuillEditor theme="snow" v-model:content="post.content" contentType="text" />
             <!-- <Markdown :source="post.content" /> -->
           </div>
-          <div class="post-tags-container">
+          <div class="tags-container">
             <template v-for="tg in post.tags" :key="tg.name">
               {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)"></button>
             </template>
             <br/>
-            <input v-model="newTag"/>
+            <input v-model="newTag" placeholder="tags..."/>
             <button class="btn btn-add" @click="addTag(newTag)">+</button>
           </div>
         </div>

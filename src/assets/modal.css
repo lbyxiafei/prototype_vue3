@@ -18,9 +18,9 @@
 }
 
 .modal-container {
-  max-height: 50vh; 
+  max-height: 80vh; 
   overflow-y: auto;
-  width: 60%;
+  width: 50%;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
@@ -29,31 +29,38 @@
   transition: all 0.3s ease;
 }
 
+.modal-body {
+  height: 100%;
+}
+
 .post-title{
   text-align: center;
   padding: 1px;
 }
 
-.post-content-container{
-  height: 50vh;
+.bookmark-title{
   text-align: center;
   padding: 1px;
 }
 
-.post-tags-container{
+.bookmark-url{
   text-align: center;
   padding: 1px;
+}
+
+.post-content-container{
+  text-align: center;
+  padding: 1px;
+}
+
+.tags-container{
+  text-align: center;
+  padding-top: 10px;
 }
 
 .modal-header h3 {
   margin-top: 0;
   color: #42b983;
-}
-
-.modal-body {
-  margin: 20px 0;
-  height: 100%;
-  overflow-y: auto;
 }
 
 .modal-default-button {
@@ -80,4 +87,8 @@
 }
 .btn-add {
   background-color: green;
+}
+
+.bookmark-modal-container {
+  width: 20%;
 }

@@ -2,22 +2,20 @@
 <Transition class="noselect" @keydown.esc="handleEsc" tabindex="1">
   <div v-if="show" class="modal-mask" >
     <div class="modal-wrapper" @dblclick.self="handleEsc">
-      <div class="modal-container">
+      <div class="modal-container bookmark-modal-container">
         <div class="modal-body">
-          <div>
-            <label>Name:</label>
-            <input v-model="bookmark.title" />
+          <div class="bookmark-title">
+            <input v-model="bookmark.title" placeholder="title" />
           </div>
-          <div>
-            <label>Url:</label>
-            <input v-model="bookmark.url" />
+          <div class="bookmark-url">
+            <input v-model="bookmark.url" placeholder="url" />
           </div>
-          <div>
+          <div class="tags-container">
             <template v-for="tg in bookmark.tags" :key="tg.name">
               {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)"></button>
             </template>
             <br/>
-            <input v-model="newTag" />
+            <input v-model="newTag" placeholder="tags..."/>
             <button class="btn btn-add" @click="addTag(newTag)">+</button>
           </div>
         </div>
