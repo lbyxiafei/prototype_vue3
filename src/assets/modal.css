@@ -20,13 +20,29 @@
 .modal-container {
   max-height: 50vh; 
   overflow-y: auto;
-  width: 50%;
+  width: 60%;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
+}
+
+.post-title{
+  text-align: center;
+  padding: 1px;
+}
+
+.post-content-container{
+  height: 50vh;
+  text-align: center;
+  padding: 1px;
+}
+
+.post-tags-container{
+  text-align: center;
+  padding: 1px;
 }
 
 .modal-header h3 {

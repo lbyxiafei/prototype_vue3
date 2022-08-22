@@ -5,14 +5,13 @@
       <div class="modal-container">
         <div class="modal-body">
           <div class="post-title">
-            <label>Title:</label>
-            <input v-model="post.title" />
+            <input v-model="post.title" placeholder="title" />
           </div>
           <div class="post-content-container">
             <QuillEditor theme="snow" v-model:content="post.content" contentType="text" />
-            <Markdown :source="post.content" />
+            <!-- <Markdown :source="post.content" /> -->
           </div>
-          <div class="post-tags">
+          <div class="post-tags-container">
             <template v-for="tg in post.tags" :key="tg.name">
               {{tg.name}}<button class="btn btn-close" @click="removeTag(tg.name)"></button>
             </template>
