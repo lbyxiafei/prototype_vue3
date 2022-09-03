@@ -4,7 +4,8 @@
       <RouterLink class="nav-link px-2 link-dark text-primary" to="/">Home</RouterLink>
       <RouterLink class="nav-link px-2 link-dark" to="/bookmarks">Bookmarks</RouterLink>
       <RouterLink class="nav-link px-2 link-dark" to="/posts">Posts</RouterLink>
-      <RouterLink class="nav-link px-2 link-dark" to="/calendar">Calendar</RouterLink>
+      <!-- <RouterLink class="nav-link px-2 link-dark" to="/calendar">Calendar</RouterLink> -->
+      <a class="nav-link px-2 link-dark" href="https://google.com" target="_blank">Calendar</a>
       <RouterLink class="nav-link px-2 link-dark" to="/about">About</RouterLink>
     </div>
 
