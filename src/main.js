@@ -4,15 +4,19 @@ import { createPinia } from 'pinia';
 import App from './App.vue';
 import router from './router';
 
-import { QuillEditor } from '@vueup/vue-quill';
-import '@vueup/vue-quill/dist/vue-quill.snow.css';
-
-import Markdown from 'vue3-markdown-it';
+import VMdEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
+// highlightjs
+import hljs from 'highlight.js';
 
 const app = createApp(App);
 
-app.component('QuillEditor', QuillEditor);
-app.component('Markdown', Markdown);
+VMdEditor.use(githubTheme, {
+  Hljs: hljs,
+});
+app.use(VMdEditor);
 
 app.use(createPinia());
 app.use(router);

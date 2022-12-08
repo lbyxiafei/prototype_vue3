@@ -8,8 +8,7 @@
             <input v-model="post.title" placeholder="title" />
           </div>
           <div class="post-content-container">
-            <QuillEditor theme="snow" v-model:content="post.content" contentType="text" />
-            <!-- <Markdown :source="post.content" /> -->
+            <v-md-editor v-model="post.content"></v-md-editor>
           </div>
           <div class="tags-container">
             <template v-for="tg in post.tags" :key="tg.name">
